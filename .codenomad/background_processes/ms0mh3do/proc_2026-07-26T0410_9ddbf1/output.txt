@@ -93,3 +93,21 @@
     [35mbody[39m: "{\"success\":false,\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"Route not found\"}}"
     [35murl[39m: "http://localhost:8000/api/bots/72473e7b-023c-4d97-938a-580a110e23f5/status"
     [35mmethod[39m: "PATCH"
+9:48:24 PM [tsx] change in ./src/index.ts Restarting...
+[21:48:24.507] [32mINFO[39m (33463): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[21:48:24.654] [32mINFO[39m (33463): [36mHealth-check server closed[39m
+[21:48:25.157] [32mINFO[39m (33463): [36mShutdown complete[39m
+[21:48:28.188] [33mWARN[39m (43319): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[21:48:28.189] [32mINFO[39m (43319): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[21:48:28.191] [32mINFO[39m (HfzBot/43319): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[21:48:28.191] [32mINFO[39m (43319): [36mRun the bot service: npm run dev[39m
+[21:48:28.191] [32mINFO[39m (43319): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[21:48:28.192] [32mINFO[39m (43319): [36mHealth-check server listening[39m
+    [35mport[39m: 3001

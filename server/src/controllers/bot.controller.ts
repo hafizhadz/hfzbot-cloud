@@ -106,17 +106,24 @@ export async function pairingBotHandler(
     await botService.updateBotStatus(bot.id, "CONNECTING");
 
     // Call bot service with phone for pairing
+    let pairingCode: string | null = null;
     try {
-      await fetch("http://localhost:3001/pairing", {
+      const response = await fetch("http://localhost:3001/pairing", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone }),
       });
+      const data = await response.json() as { pairingCode?: string; ok?: boolean; message?: string };
+      pairingCode = data.pairingCode ?? null;
     } catch {
       // Bot service might not be running
     }
 
-    success(res, { message: "Pairing code diminta. Cek dashboard untuk kode pairing.", botId: bot.id });
+    success(res, {
+      message: pairingCode ? "Kode pairing berhasil didapatkan" : "Pairing code diminta. Cek beberapa saat...",
+      pairingCode,
+      botId: bot.id,
+    });
   } catch (err) {
     next(err);
   }

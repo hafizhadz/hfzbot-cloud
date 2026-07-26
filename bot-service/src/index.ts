@@ -99,29 +99,42 @@ const server = http.createServer(async (req, res) => {
 
   // ── POST /pairing — connect with pairing code ──
   if (req.method === "POST" && url.pathname === "/pairing") {
-    try {
-      let body = ""
-      req.on("data", (chunk) => { body += chunk })
-      req.on("end", async () => {
-        try {
-          const { phone } = JSON.parse(body) as { phone: string }
-          if (!phone || phone.length < 10) {
-            res.writeHead(400, { "Content-Type": "application/json" })
-            res.end(JSON.stringify({ ok: false, error: "Nomor telepon tidak valid" }))
+    let body = ""
+    req.on("data", (chunk) => { body += chunk })
+    req.on("end", async () => {
+      try {
+        const { phone } = JSON.parse(body) as { phone: string }
+        if (!phone || phone.length < 10) {
+          res.writeHead(400, { "Content-Type": "application/json" })
+          res.end(JSON.stringify({ ok: false, error: "Nomor telepon tidak valid" }))
+          return
+        }
+        await bot.connectWithPairingCode(phone)
+        // Wait up to 10s for the pairing code to be generated
+        for (let i = 0; i < 20; i++) {
+          const state = bot.getState()
+          if (state.pairingCode) {
+            res.writeHead(200, { "Content-Type": "application/json" })
+            res.end(JSON.stringify({ ok: true, pairingCode: state.pairingCode }))
             return
           }
-          await bot.connectWithPairingCode(phone)
-          res.writeHead(200, { "Content-Type": "application/json" })
-          res.end(JSON.stringify({ ok: true, message: "Pairing code diminta — cek log bot untuk kodenya" }))
-        } catch {
-          res.writeHead(400, { "Content-Type": "application/json" })
-          res.end(JSON.stringify({ ok: false, error: "Format request salah. Kirim { phone: \"62812...\" }" }))
+          await new Promise(r => setTimeout(r, 500))
         }
-      })
-    } catch {
-      res.writeHead(500, { "Content-Type": "application/json" })
-      res.end(JSON.stringify({ ok: false, error: "Internal error" }))
-    }
+        res.writeHead(202, { "Content-Type": "application/json" })
+        res.end(JSON.stringify({ ok: true, message: "Pairing code diminta — cek /pairing-code endpoint" }))
+      } catch {
+        res.writeHead(400, { "Content-Type": "application/json" })
+        res.end(JSON.stringify({ ok: false, error: "Format salah. Kirim { phone: \"62812...\" }" }))
+      }
+    })
+    return
+  }
+
+  // ── GET /pairing-code — get current pairing code ──
+  if (req.method === "GET" && url.pathname === "/pairing-code") {
+    const state = bot.getState()
+    res.writeHead(200, { "Content-Type": "application/json" })
+    res.end(JSON.stringify({ pairingCode: state.pairingCode ?? null, status: state.status }))
     return
   }
 
