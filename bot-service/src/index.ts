@@ -161,3 +161,14 @@ async function shutdown(signal: string): Promise<void> {
 }
 process.on("SIGTERM", () => void shutdown("SIGTERM"))
 process.on("SIGINT", () => void shutdown("SIGINT"))
+
+// ── Unhandled errors ──────────────────────────────────────────────────────────
+
+process.on("unhandledRejection", (reason) => {
+  logger.error({ reason }, "Unhandled rejection — preventing crash")
+})
+
+process.on("uncaughtException", (error) => {
+  logger.error({ error }, "Uncaught exception")
+  process.exit(1)
+})

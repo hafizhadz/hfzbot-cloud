@@ -185,3 +185,12 @@
     [35murl[39m: "http://localhost:8000/api"
 [22:51:34.566] [32mINFO[39m (45145): [36mBot service listening[39m
     [35mport[39m: 3001
+11:10:04 PM [tsx] change in ./src/index.ts Restarting...
+[23:10:04.545] [32mINFO[39m (45145): [36mShutting down[39m
+    [35msignal[39m: "SIGTERM"
+[23:10:07.241] [33mWARN[39m (45377): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[23:10:07.242] [32mINFO[39m (45377): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+[23:10:07.247] [32mINFO[39m (45377): [36mBot service listening[39m
+    [35mport[39m: 3001
