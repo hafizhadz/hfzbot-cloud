@@ -44,6 +44,21 @@ export async function webhookQRHandler(req: Request, res: Response, next: NextFu
   } catch (err) { next(err); }
 }
 
+// ── GET /api/bot/status — polling status from bot service ────────────────
+
+export async function botStatusHandler(req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const userId = (req as any).user?.userId as string;
+    try {
+      const r = await fetch(`http://localhost:3001/status/${userId}`);
+      const data = await r.json();
+      success(res, data);
+    } catch {
+      success(res, { userId, status: "offline" });
+    }
+  } catch (err) { next(err); }
+}
+
 async function getBotId(userId: string): Promise<string | null> {
   const bot = await botService.findBotByUserId(userId);
   return bot?.id ?? null;

@@ -18,6 +18,7 @@ router.post("/connect", authenticate, botController.connectBotHandler);
 router.post("/pairing", authenticate, botController.pairingBotHandler);
 router.post("/disconnect", authenticate, botController.disconnectBotHandler);
 router.get("/qr", authenticate, botController.getQRHandler);
+router.get("/status", authenticate, botController.botStatusHandler);
 router.delete("/session", authenticate, botController.deleteSessionHandler);
 
 // ── Bot service webhook routes (API key auth) ─────────────────────────────

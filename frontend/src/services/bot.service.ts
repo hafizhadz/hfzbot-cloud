@@ -34,3 +34,8 @@ export async function pairingBot(phone: string) {
   const res = await api.post("/bot/pairing", { phone });
   return res.data?.data ?? res.data;
 }
+
+export async function getBotStatus() {
+  const res = await api.get("/bot/status");
+  return res.data?.data ?? res.data;
+}

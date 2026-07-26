@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { motion } from "framer-motion";
 import {
@@ -43,6 +43,7 @@ import {
   getQR,
   resetSession,
   pairingBot,
+  getBotStatus,
 } from "@/services/bot.service";
 import type { Bot as BotType } from "@/types";
 
@@ -269,6 +270,32 @@ function BotDetail({
   const [pairingCode, setPairingCode] = useState("");
   const [pairingLoading, setPairingLoading] = useState(false);
   const [pairingError, setPairingError] = useState("");
+  const [isPolling, setIsPolling] = useState(false);
+
+  // Poll for QR/pairing code when connecting
+  useEffect(() => {
+    if (!isPolling) return;
+    const interval = setInterval(async () => {
+      try {
+        const status = await getBotStatus();
+        if (status.qr) {
+          setQrData(status.qr);
+          setShowQR(true);
+        }
+        if (status.pairingCode) {
+          setPairingCode(status.pairingCode);
+        }
+        if (status.status === "online") {
+          setIsPolling(false);
+          onRefresh();
+        }
+        if (status.status === "disconnected" || status.status === "offline") {
+          setIsPolling(false);
+        }
+      } catch {}
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [isPolling, onRefresh]);
 
   const isOnline = bot.status === "ONLINE";
   const isSuspended = bot.status === "SUSPENDED";
@@ -276,13 +303,13 @@ function BotDetail({
 
   async function handleConnect() {
     setIsConnecting(true);
+    setIsPolling(true);
     try {
-      const result = await connectBot();
-      setQrData(result.qr_code ?? result.qr);
+      await connectBot();
       setShowQR(true);
       onRefresh();
     } catch {
-      // handled
+      setIsPolling(false);
     } finally {
       setIsConnecting(false);
     }
@@ -310,10 +337,12 @@ function BotDetail({
     setPairingLoading(true);
     setPairingError("");
     setPairingCode("");
+    setIsPolling(true);
     try {
       const result = await pairingBot(pairingPhone);
-      setPairingCode(result.pairingCode ?? result.code ?? result.message ?? "Kode pairing telah dikirim");
+      if (result.pairingCode) setPairingCode(result.pairingCode);
     } catch (err: unknown) {
+      setIsPolling(false);
       const msg = (err as { response?: { data?: { error?: { message?: string } } } })?.response?.data?.error?.message || "Gagal mendapatkan kode pairing";
       setPairingError(msg);
     } finally {
