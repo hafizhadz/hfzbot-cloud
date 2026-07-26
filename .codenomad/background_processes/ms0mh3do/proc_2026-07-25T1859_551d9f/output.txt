@@ -1,0 +1,33 @@
+
+> hfzbot-cloud-frontend@0.1.0 dev
+> vite
+
+
+  VITE v8.1.5  ready in 499 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+1:59:55 AM [vite] (client) dependencies optimized: @base-ui/react/drawer, @base-ui/react/merge-props, @base-ui/react/use-render, axios, class-variance-authority
+2:00:32 AM [vite] (client) dependencies optimized: @base-ui/react/button, @base-ui/react/tabs
+2:00:32 AM [vite] (client) optimized dependencies changed. reloading
+2:01:00 AM [vite] (client) dependency optimized: @base-ui/react/input
+2:01:00 AM [vite] (client) optimized dependencies changed. reloading
+2:01:18 AM [vite] (client) dependency optimized: @base-ui/react/dialog
+2:01:18 AM [vite] (client) optimized dependencies changed. reloading
+2:01:26 AM [vite] (client) dependency optimized: @base-ui/react/avatar
+2:01:26 AM [vite] (client) optimized dependencies changed. reloading
+2:02:53 AM [vite] (client) hmr update /src/index.css
+2:02:58 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/groups.tsx
+2:03:06 AM [vite] (client) hmr update /src/index.css
+2:03:15 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+2:03:25 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+2:03:45 AM [vite] (client) hmr update /src/index.css
+2:03:45 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/groups.tsx
+2:03:45 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+2:03:56 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+2:03:57 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+2:04:08 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+2:04:15 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+2:04:25 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+2:04:50 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/groups.tsx
+2:04:51 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx

@@ -1,0 +1,741 @@
+
+> hfzbot-cloud-bot@1.0.0 dev
+> tsx watch src/index.ts
+
+[02:33:17.108] [32mINFO[39m (25039): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[02:33:17.111] [32mINFO[39m (HfzBot/25039): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[02:33:17.111] [32mINFO[39m (25039): [36mRun the bot service: npm run dev[39m
+[02:33:17.111] [32mINFO[39m (25039): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[02:33:17.112] [32mINFO[39m (25039): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+[02:33:28.611] [32mINFO[39m (25039): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[02:33:28.692] [32mINFO[39m (25039): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[02:33:28.714] [32mINFO[39m (25039): [36mConnecting to WhatsApp...[39m
+[02:33:28.927] [32mINFO[39m (25039): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "qs614uIbRFgY5GDbw7yMDb6yGpfSrJstDl4oIblmIh4="
+      }
+    }
+[02:33:29.143] [32mINFO[39m (25039): [36mnot logged in, attempting registration...[39m
+    [35mnode[39m: {
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "devicePairingData": {
+        "eRegid": "AAAAUg==",
+        "eKeytype": "BQ==",
+        "eIdent": "u5D/OwhmotGEei31aisiYW8+vrVtvfHDzfapVa67Wmc=",
+        "eSkeyId": "AAAB",
+        "eSkeyVal": "J2XKtdZYS5uOjendvGuokN/SHuQhcZufgc8KAZpy9iA=",
+        "eSkeySig": "9HiJ7A55uLixzWH3BT/yXkpom6FYaPLPhvv58By9WAr5uGVSooMfAM3l1kAjYhWSZbtauadg4kq74ytNNXTkBA==",
+        "buildHash": "c9lQeUMlTdrMrIi/+YcPiA==",
+        "deviceProps": "CgZVYnVudHUYByAAKhUYgFAgATAAOAFAAUgBUAFYAWABcAE="
+      },
+      "pull": false
+    }
+[02:33:32.475] [32mINFO[39m (25039): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[02:33:32.475] [31mERROR[39m (25039): [36mConnection closed[39m
+    [35mstatusCode[39m: 405
+    [35mmessage[39m: "Connection Failure"
+[02:33:32.476] [32mINFO[39m (25039): [36mScheduling reconnect[39m
+    [35mattempt[39m: 1
+    [35mdelay[39m: 1660
+[02:33:34.137] [32mINFO[39m (25039): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[02:33:34.151] [32mINFO[39m (25039): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[02:33:34.157] [32mINFO[39m (25039): [36mConnecting to WhatsApp...[39m
+[02:33:34.400] [32mINFO[39m (25039): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "wz3e6jMS2fEvl74VIzYIqU9n4V8cm8e3RLIaYtb45X8="
+      }
+    }
+[02:33:34.621] [32mINFO[39m (25039): [36mnot logged in, attempting registration...[39m
+    [35mnode[39m: {
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "devicePairingData": {
+        "eRegid": "AAAAxw==",
+        "eKeytype": "BQ==",
+        "eIdent": "K4zYVPpoR6MK69qOFcmgf+/kSpi5V6HUOheFaXEjrXQ=",
+        "eSkeyId": "AAAB",
+        "eSkeyVal": "20nHpWil5fnumfhBA828vYe4q8GZkxZHlzNvyKsdV3g=",
+        "eSkeySig": "+QkMEJ7RmeP3m0ymL2NMogwEv8fcuj+1o0kJvtSgeASAs1O4Uv1rKDQU5wxoRstTBJHCKnA2S8P2Bo+qKpbSiQ==",
+        "buildHash": "c9lQeUMlTdrMrIi/+YcPiA==",
+        "deviceProps": "CgZVYnVudHUYByAAKhUYgFAgATAAOAFAAUgBUAFYAWABcAE="
+      },
+      "pull": false
+    }
+[02:33:37.636] [32mINFO[39m (25039): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[02:33:37.637] [31mERROR[39m (25039): [36mConnection closed[39m
+    [35mstatusCode[39m: 405
+    [35mmessage[39m: "Connection Failure"
+[02:33:37.637] [32mINFO[39m (25039): [36mScheduling reconnect[39m
+    [35mattempt[39m: 2
+    [35mdelay[39m: 2937
+[02:33:44.077] [32mINFO[39m (25039): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[02:33:44.088] [32mINFO[39m (25039): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[02:33:44.091] [32mINFO[39m (25039): [36mConnecting to WhatsApp...[39m
+[02:33:44.352] [32mINFO[39m (25039): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "BUPxORprasrWVwuuQe9+RUzPh6vhADO7tF5Zs70XPwk="
+      }
+    }
+[02:33:44.591] [32mINFO[39m (25039): [36mnot logged in, attempting registration...[39m
+    [35mnode[39m: {
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "devicePairingData": {
+        "eRegid": "AAAAcg==",
+        "eKeytype": "BQ==",
+        "eIdent": "Uxt4rWX7MpjKW4x8Bjk1tmmroYejAYZVE8kLXevGriA=",
+        "eSkeyId": "AAAB",
+        "eSkeyVal": "1G1rifxudzT4TmiEvB9J/LcXjpFbhG3KdrCFs8ZZ/Ew=",
+        "eSkeySig": "WDuHR9vtSOHgl3vrTvefO3n19oLTTEd/sUGx1g50jz1ZWhOCthLa7IB/42Eqhas0qweSyw/Ay59/0dZpXMHqBQ==",
+        "buildHash": "c9lQeUMlTdrMrIi/+YcPiA==",
+        "deviceProps": "CgZVYnVudHUYByAAKhUYgFAgATAAOAFAAUgBUAFYAWABcAE="
+      },
+      "pull": false
+    }
+[02:33:45.884] [32mINFO[39m (25039): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[02:33:45.884] [31mERROR[39m (25039): [36mConnection closed[39m
+    [35mstatusCode[39m: 405
+    [35mmessage[39m: "Connection Failure"
+[02:33:45.884] [32mINFO[39m (25039): [36mScheduling reconnect[39m
+    [35mattempt[39m: 3
+    [35mdelay[39m: 4271
+[02:33:50.157] [32mINFO[39m (25039): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[02:33:50.172] [32mINFO[39m (25039): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[02:33:50.177] [32mINFO[39m (25039): [36mConnecting to WhatsApp...[39m
+[02:33:50.383] [32mINFO[39m (25039): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "D67MZPk1SNT4lTJPQH+/OYiU2VJ9KFQWeRCJRd7Oc0g="
+      }
+    }
+[02:33:50.571] [32mINFO[39m (25039): [36mnot logged in, attempting registration...[39m
+    [35mnode[39m: {
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "devicePairingData": {
+        "eRegid": "AAAATg==",
+        "eKeytype": "BQ==",
+        "eIdent": "zgbP6AOMvTjpa4JGX0bf4Sf0nH4QWa08q6uYtS8eyXc=",
+        "eSkeyId": "AAAB",
+        "eSkeyVal": "Ya9ry8efpSdekPjVq5H8u5m60jbgEWqByD0gjrYO+Vw=",
+        "eSkeySig": "PWWxP3bdYs/7IBldLXcmhrvhYHrE6UF1uzpZCfgwaIdy9hexAlSELeI2DQzPxuTuxKH/dhBBPnj2kP1gDEtHAw==",
+        "buildHash": "c9lQeUMlTdrMrIi/+YcPiA==",
+        "deviceProps": "CgZVYnVudHUYByAAKhUYgFAgATAAOAFAAUgBUAFYAWABcAE="
+      },
+      "pull": false
+    }
+[02:33:53.183] [32mINFO[39m (25039): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[02:33:53.183] [31mERROR[39m (25039): [36mConnection closed[39m
+    [35mstatusCode[39m: 405
+    [35mmessage[39m: "Connection Failure"
+[02:33:53.183] [32mINFO[39m (25039): [36mScheduling reconnect[39m
+    [35mattempt[39m: 4
+    [35mdelay[39m: 8432
+[02:34:01.621] [32mINFO[39m (25039): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[02:34:01.635] [32mINFO[39m (25039): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[02:34:01.639] [32mINFO[39m (25039): [36mConnecting to WhatsApp...[39m
+[02:34:01.907] [32mINFO[39m (25039): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "RdVZg1+Ph/fz7Awmw0lj88R/PQuq0q6dB9zbVbZP5hY="
+      }
+    }
+[02:34:02.145] [32mINFO[39m (25039): [36mnot logged in, attempting registration...[39m
+    [35mnode[39m: {
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "devicePairingData": {
+        "eRegid": "AAAApg==",
+        "eKeytype": "BQ==",
+        "eIdent": "oSrd+UZU13cwYme/smd4eZf41zdTvxRiKx5IIuPu5FU=",
+        "eSkeyId": "AAAB",
+        "eSkeyVal": "n4iclFzIdFNwkejrjXv8UOmiBPHPzaEYVdD5qU7KrXI=",
+        "eSkeySig": "mZRNXfcYZNbDPvwgkKobHpCwbYap65k1kxPWmR2mPNZs7n7Rd9wWM+WUTKQ+VSLexbvi8uYE+AiTjgp6x9z6BA==",
+        "buildHash": "c9lQeUMlTdrMrIi/+YcPiA==",
+        "deviceProps": "CgZVYnVudHUYByAAKhUYgFAgATAAOAFAAUgBUAFYAWABcAE="
+      },
+      "pull": false
+    }
+[02:34:06.781] [32mINFO[39m (25039): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[02:34:06.781] [31mERROR[39m (25039): [36mConnection closed[39m
+    [35mstatusCode[39m: 405
+    [35mmessage[39m: "Connection Failure"
+[02:34:06.781] [32mINFO[39m (25039): [36mScheduling reconnect[39m
+    [35mattempt[39m: 5
+    [35mdelay[39m: 16234
+[02:34:26.459] [32mINFO[39m (25039): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[02:34:26.470] [32mINFO[39m (25039): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[02:34:26.473] [32mINFO[39m (25039): [36mConnecting to WhatsApp...[39m
+[02:34:26.721] [32mINFO[39m (25039): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "ayn/K2MP9K30CyGlho/PFzwlD1IWXW3RXX+gLRCyjHs="
+      }
+    }
+[02:34:26.942] [32mINFO[39m (25039): [36mnot logged in, attempting registration...[39m
+    [35mnode[39m: {
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "devicePairingData": {
+        "eRegid": "AAAAZg==",
+        "eKeytype": "BQ==",
+        "eIdent": "IZY9ImsYoT3WBKK4aMWHtX8LVPqaK90LeZ70cRyy3FQ=",
+        "eSkeyId": "AAAB",
+        "eSkeyVal": "gb/81RmMPSwwkbWRKnUKt7UPwYNizYdY5Hs9bZW7wG0=",
+        "eSkeySig": "d5K2diLMuYk1vT6LKhgjgDICq5op9ZMY04l+Iv1i8mzFLxYV8joEnIT9TRPvqzQZfjrIZTxl253DmOyS3LiUjg==",
+        "buildHash": "c9lQeUMlTdrMrIi/+YcPiA==",
+        "deviceProps": "CgZVYnVudHUYByAAKhUYgFAgATAAOAFAAUgBUAFYAWABcAE="
+      },
+      "pull": false
+    }
+[02:34:30.364] [32mINFO[39m (25039): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[02:34:30.364] [31mERROR[39m (25039): [36mConnection closed[39m
+    [35mstatusCode[39m: 405
+    [35mmessage[39m: "Connection Failure"
+[02:34:30.364] [32mINFO[39m (25039): [36mScheduling reconnect[39m
+    [35mattempt[39m: 6
+    [35mdelay[39m: 32305
+[02:35:06.176] [32mINFO[39m (25039): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[02:35:06.184] [32mINFO[39m (25039): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[02:35:06.188] [32mINFO[39m (25039): [36mConnecting to WhatsApp...[39m
+[02:35:06.456] [32mINFO[39m (25039): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "15M/YBSxUMSvKfepXK6AusL1Fg/2ycTrwFZTug24sV4="
+      }
+    }
+[02:35:06.694] [32mINFO[39m (25039): [36mnot logged in, attempting registration...[39m
+    [35mnode[39m: {
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "devicePairingData": {
+        "eRegid": "AAAAjw==",
+        "eKeytype": "BQ==",
+        "eIdent": "oo26jm0uAkttD3ZfoHwACld434GfXB/Y+gmHrHNWvGk=",
+        "eSkeyId": "AAAB",
+        "eSkeyVal": "SJQsF+rSOllxQ1rRQsUtTRNqbsLPeOvgH2qQQK6GS2I=",
+        "eSkeySig": "j6h2hONLwpDyl8n4b4c2g6A3+2+m1dNP7DKULyFIxRuLM0Uo2Od4tIkOXqQLy65v2BJeE/2LR86Mmg7aIhMrDQ==",
+        "buildHash": "c9lQeUMlTdrMrIi/+YcPiA==",
+        "deviceProps": "CgZVYnVudHUYByAAKhUYgFAgATAAOAFAAUgBUAFYAWABcAE="
+      },
+      "pull": false
+    }
+[02:35:10.531] [32mINFO[39m (25039): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[02:35:10.532] [31mERROR[39m (25039): [36mConnection closed[39m
+    [35mstatusCode[39m: 405
+    [35mmessage[39m: "Connection Failure"
+[02:35:10.532] [32mINFO[39m (25039): [36mScheduling reconnect[39m
+    [35mattempt[39m: 7
+    [35mdelay[39m: 64696
+[02:36:22.146] [32mINFO[39m (25039): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[02:36:22.156] [32mINFO[39m (25039): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[02:36:22.161] [32mINFO[39m (25039): [36mConnecting to WhatsApp...[39m
+[02:36:22.438] [32mINFO[39m (25039): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "mRSgxAFwbXhcTNF5uGd+QYHcTcItF3zBkID1OvdUEhY="
+      }
+    }
+[02:36:22.677] [32mINFO[39m (25039): [36mnot logged in, attempting registration...[39m
+    [35mnode[39m: {
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "devicePairingData": {
+        "eRegid": "AAAAqA==",
+        "eKeytype": "BQ==",
+        "eIdent": "U6aokC9h0tAZ2KJS27qU3OWnR8tgUIV8BR28/SNyN08=",
+        "eSkeyId": "AAAB",
+        "eSkeyVal": "zktRMY/4DsIbrUzW5pEGAeOBlMUxRtUvofoL+hMxLw0=",
+        "eSkeySig": "bmnB3G+HlMUG25BfC4Rqt8Gzz2B/1A7ZWWkAVvD4ST1vRSQT+sZSvGHpBvn2/kTqd/A6eTqwkkKDmBEXpy+IDg==",
+        "buildHash": "c9lQeUMlTdrMrIi/+YcPiA==",
+        "deviceProps": "CgZVYnVudHUYByAAKhUYgFAgATAAOAFAAUgBUAFYAWABcAE="
+      },
+      "pull": false
+    }
+[02:36:24.831] [32mINFO[39m (25039): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[02:36:24.831] [31mERROR[39m (25039): [36mConnection closed[39m
+    [35mstatusCode[39m: 405
+    [35mmessage[39m: "Connection Failure"
+[02:36:24.831] [32mINFO[39m (25039): [36mScheduling reconnect[39m
+    [35mattempt[39m: 8
+    [35mdelay[39m: 128691
+[02:38:47.846] [32mINFO[39m (25039): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[02:38:47.859] [32mINFO[39m (25039): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[02:38:47.863] [32mINFO[39m (25039): [36mConnecting to WhatsApp...[39m
+[02:38:48.510] [32mINFO[39m (25039): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "jk0MjsqRTQrlIp+h+lOuoLhWo9S80a6xI7Bf8vWbXSY="
+      }
+    }
+[02:38:48.725] [32mINFO[39m (25039): [36mnot logged in, attempting registration...[39m
+    [35mnode[39m: {
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "devicePairingData": {
+        "eRegid": "AAAAEw==",
+        "eKeytype": "BQ==",
+        "eIdent": "R9n6CoKkrDujN3VMpXgWVSQTABEaL3SS8jAl9O5fmF8=",
+        "eSkeyId": "AAAB",
+        "eSkeyVal": "qK1Bmx3OZbF7E3OTZF/z9tMe84fj1R6J7aijSLqKA2Q=",
+        "eSkeySig": "6DJMydpQ/3yALx+mWygfKXTAY9myTlltv3v32fRi6IOmIjpMPZa3mZ009mCC/CFyJKtWBm9R3P3qHgyyYcM2gg==",
+        "buildHash": "c9lQeUMlTdrMrIi/+YcPiA==",
+        "deviceProps": "CgZVYnVudHUYByAAKhUYgFAgATAAOAFAAUgBUAFYAWABcAE="
+      },
+      "pull": false
+    }
+[02:38:50.645] [32mINFO[39m (25039): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[02:38:50.645] [31mERROR[39m (25039): [36mConnection closed[39m
+    [35mstatusCode[39m: 405
+    [35mmessage[39m: "Connection Failure"
+[02:38:50.646] [32mINFO[39m (25039): [36mScheduling reconnect[39m
+    [35mattempt[39m: 9
+    [35mdelay[39m: 256119
+[02:43:35.227] [32mINFO[39m (25039): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[02:43:35.249] [32mINFO[39m (25039): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[02:43:35.260] [32mINFO[39m (25039): [36mConnecting to WhatsApp...[39m
+[02:43:35.511] [32mINFO[39m (25039): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "K+vX4G78EHy0qZLN1QUAqjOaoVM84lLydchu4AeMonY="
+      }
+    }
+[02:43:35.717] [32mINFO[39m (25039): [36mnot logged in, attempting registration...[39m
+    [35mnode[39m: {
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "devicePairingData": {
+        "eRegid": "AAAAAw==",
+        "eKeytype": "BQ==",
+        "eIdent": "1jXrz/Ne8GyyPHUMbxVz1Ux8oGcCNc0UdvVhZ1wT7Fs=",
+        "eSkeyId": "AAAB",
+        "eSkeyVal": "VjGHTWCCrB60IIipKcvNdXDwQ3UXX5qjX0WV1BItWU0=",
+        "eSkeySig": "7Df/KtcvXAF/xPRLajHxrZ9d3Hcd2CIrhS9K2D5MD5hVqVVW4mB2WJU0oG5X1e2nHLUTnUYDF45TUdedGsdehw==",
+        "buildHash": "c9lQeUMlTdrMrIi/+YcPiA==",
+        "deviceProps": "CgZVYnVudHUYByAAKhUYgFAgATAAOAFAAUgBUAFYAWABcAE="
+      },
+      "pull": false
+    }
+[02:43:38.918] [32mINFO[39m (25039): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[02:43:38.918] [31mERROR[39m (25039): [36mConnection closed[39m
+    [35mstatusCode[39m: 405
+    [35mmessage[39m: "Connection Failure"
+[02:43:38.918] [32mINFO[39m (25039): [36mScheduling reconnect[39m
+    [35mattempt[39m: 10
+    [35mdelay[39m: 512154
+[02:53:09.212] [32mINFO[39m (25039): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[02:53:09.284] [32mINFO[39m (25039): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[02:53:09.312] [32mINFO[39m (25039): [36mConnecting to WhatsApp...[39m
+[02:53:09.636] [32mINFO[39m (25039): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "XHPBbSwvwQcqs6iQ9lF5FyO1WzckRmY4zNa+SpHIDFM="
+      }
+    }
+[02:53:09.811] [32mINFO[39m (25039): [36mnot logged in, attempting registration...[39m
+    [35mnode[39m: {
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "devicePairingData": {
+        "eRegid": "AAAAPg==",
+        "eKeytype": "BQ==",
+        "eIdent": "1NWV0YvD6F6X5Q6UhDSCZpz3eLr5vHurLf4W4kv+REY=",
+        "eSkeyId": "AAAB",
+        "eSkeyVal": "TRA6/E/fHpU2y9C8lU5V/g0roPWAxlqQvSiQXG09HHM=",
+        "eSkeySig": "GDVAGD663YOuM8ZiXU8F6nOOYGrZcbJssFslRZSevCbIlRnzKlpC2e1PsDOcQe5Sp/WqhgGgjnFD3GI44Yakgg==",
+        "buildHash": "c9lQeUMlTdrMrIi/+YcPiA==",
+        "deviceProps": "CgZVYnVudHUYByAAKhUYgFAgATAAOAFAAUgBUAFYAWABcAE="
+      },
+      "pull": false
+    }
+[02:53:12.828] [32mINFO[39m (25039): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[02:53:12.829] [31mERROR[39m (25039): [36mConnection closed[39m
+    [35mstatusCode[39m: 405
+    [35mmessage[39m: "Connection Failure"
+[02:53:12.839] [41mFATAL[49m (25039): [36mMax reconnection attempts reached — giving up[39m
+[02:53:12.944] [31mERROR[39m (25039): [36mBackend API request failed[39m
+    [35mstatus[39m: 404
+    [35mbody[39m: "{\"success\":false,\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"Route not found\"}}"
+    [35murl[39m: "http://localhost:8000/api/bots/72473e7b-023c-4d97-938a-580a110e23f5/status"
+    [35mmethod[39m: "PATCH"
+9:07:11 AM [tsx] change in ./src/services/message-handler.ts Restarting...
+[09:07:11.217] [32mINFO[39m (25039): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:07:11.251] [32mINFO[39m (25039): [36mHealth-check server closed[39m
+[09:07:11.753] [32mINFO[39m (25039): [36mShutdown complete[39m
+9:07:15 AM [tsx] change in ./src/services/message-handler.ts Restarting...
+[09:07:17.464] [32mINFO[39m (30891): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:07:17.472] [32mINFO[39m (HfzBot/30891): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:07:17.472] [32mINFO[39m (30891): [36mRun the bot service: npm run dev[39m
+[09:07:17.472] [32mINFO[39m (30891): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:07:17.476] [32mINFO[39m (30891): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:07:47 AM [tsx] change in ./src/services/whatsapp.ts Restarting...
+[09:07:47.019] [32mINFO[39m (30891): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:07:47.022] [32mINFO[39m (30891): [36mHealth-check server closed[39m
+[09:07:47.522] [32mINFO[39m (30891): [36mShutdown complete[39m
+[09:07:49.169] [32mINFO[39m (30925): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:07:49.174] [32mINFO[39m (HfzBot/30925): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:07:49.174] [32mINFO[39m (30925): [36mRun the bot service: npm run dev[39m
+[09:07:49.174] [32mINFO[39m (30925): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:07:49.176] [32mINFO[39m (30925): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:07:51 AM [tsx] change in ./src/services/whatsapp.ts Restarting...
+[09:07:51.390] [32mINFO[39m (30925): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:07:51.392] [32mINFO[39m (30925): [36mHealth-check server closed[39m
+[09:07:51.893] [32mINFO[39m (30925): [36mShutdown complete[39m
+[09:07:53.424] [32mINFO[39m (30947): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:07:53.428] [32mINFO[39m (HfzBot/30947): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:07:53.428] [32mINFO[39m (30947): [36mRun the bot service: npm run dev[39m
+[09:07:53.428] [32mINFO[39m (30947): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:07:53.429] [32mINFO[39m (30947): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:08:02 AM [tsx] change in ./src/modules/moderation.ts Restarting...
+9:08:03 AM [tsx] change in ./src/modules/welcome.ts Process hasn't exited. Killing process...
+[09:08:04.709] [32mINFO[39m (30990): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:08:04.713] [32mINFO[39m (HfzBot/30990): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:08:04.713] [32mINFO[39m (30990): [36mRun the bot service: npm run dev[39m
+[09:08:04.713] [32mINFO[39m (30990): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:08:04.714] [32mINFO[39m (30990): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:08:18 AM [tsx] Previous process hasn't exited yet. Force killing...

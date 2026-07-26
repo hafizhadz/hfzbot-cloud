@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.tmp/
+.env
+.env.local
+*.db
+*.db-journal
+auth_state/
+logs/
+.DS_Store
+*.log

@@ -1,0 +1,98 @@
+
+> hfzbot-cloud-server@1.0.0 dev
+> tsx watch src/index.ts
+
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`password`, `main`.`User`.`googleId`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`avatar`, `main`.`User`.`status`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+[ERROR] ValidationError: Email already registered
+ValidationError: Email already registered
+    at Module.registerUser (/home/mhafizha/realwebsite/server/src/services/auth.service.ts:71:11)
+    at async register (/home/mhafizha/realwebsite/server/src/controllers/auth.controller.ts:33:20)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`password`, `main`.`User`.`googleId`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`avatar`, `main`.`User`.`status`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`EmailOTP`.`id`, `main`.`EmailOTP`.`userId`, `main`.`EmailOTP`.`type`, `main`.`EmailOTP`.`code`, `main`.`EmailOTP`.`attempts`, `main`.`EmailOTP`.`expiresAt`, `main`.`EmailOTP`.`createdAt` FROM `main`.`EmailOTP` WHERE (`main`.`EmailOTP`.`userId` = ? AND `main`.`EmailOTP`.`type` = ? AND `main`.`EmailOTP`.`createdAt` >= ?) ORDER BY `main`.`EmailOTP`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`EmailOTP`.`id` FROM `main`.`EmailOTP` WHERE (`main`.`EmailOTP`.`userId` = ? AND `main`.`EmailOTP`.`type` = ? AND `main`.`EmailOTP`.`createdAt` >= ?) LIMIT ? OFFSET ?) AS `sub`
+prisma:query INSERT INTO `main`.`EmailOTP` (`id`, `userId`, `type`, `code`, `attempts`, `expiresAt`, `createdAt`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `type` AS `type`, `code` AS `code`, `attempts` AS `attempts`, `expiresAt` AS `expiresAt`, `createdAt` AS `createdAt`
+[Resend API Error]: {
+  status: 403,
+  error: {
+    statusCode: 403,
+    name: 'validation_error',
+    message: 'You can only send testing emails to your own email address (muhammadhafizhadzdzakwan@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.'
+  },
+  path: '/emails'
+}
+[EMAIL] Failed to send "Verify your email address" to hgege482@gmail.com: You can only send testing emails to your own email address (muhammadhafizhadzdzakwan@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`status` = ? AND `main`.`Subscription`.`expiresAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`status` = ? AND `main`.`Subscription`.`expiresAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`status` = ? AND `main`.`Subscription`.`expiresAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`status` = ? AND `main`.`Subscription`.`expiresAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+9:12:38 AM [tsx] change in ./src/controllers/subscription.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+
+SIGTERM received. Shutting down gracefully...
+
+SIGTERM received. Shutting down gracefully...
+9:12:50 AM [tsx] Previous process hasn't exited yet. Force killing...

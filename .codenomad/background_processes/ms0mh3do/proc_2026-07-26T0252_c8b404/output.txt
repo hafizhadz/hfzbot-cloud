@@ -1,0 +1,36 @@
+
+> hfzbot-cloud-bot@1.0.0 dev
+> tsx watch src/index.ts
+
+[09:52:11.733] [33mWARN[39m (32507): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[09:52:11.733] [32mINFO[39m (32507): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:52:11.744] [32mINFO[39m (HfzBot/32507): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:52:11.744] [32mINFO[39m (32507): [36mRun the bot service: npm run dev[39m
+[09:52:11.744] [32mINFO[39m (32507): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:52:11.746] [32mINFO[39m (32507): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:53:41 AM [tsx] change in ./src/commands/help.ts Restarting...
+[09:53:41.263] [32mINFO[39m (32507): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:53:41.264] [32mINFO[39m (32507): [36mHealth-check server closed[39m
+[09:53:41.765] [32mINFO[39m (32507): [36mShutdown complete[39m
+[09:53:42.812] [33mWARN[39m (32532): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[09:53:42.812] [32mINFO[39m (32532): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:53:42.815] [32mINFO[39m (HfzBot/32532): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:53:42.815] [32mINFO[39m (32532): [36mRun the bot service: npm run dev[39m
+[09:53:42.815] [32mINFO[39m (32532): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:53:42.816] [32mINFO[39m (32532): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:53:51 AM [tsx] Previous process hasn't exited yet. Force killing...

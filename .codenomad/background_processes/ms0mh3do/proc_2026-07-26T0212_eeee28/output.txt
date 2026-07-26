@@ -1,0 +1,96 @@
+
+> hfzbot-cloud-bot@1.0.0 dev
+> tsx watch src/index.ts
+
+[09:13:00.524] [32mINFO[39m (31317): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:13:00.526] [32mINFO[39m (HfzBot/31317): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:13:00.526] [32mINFO[39m (31317): [36mRun the bot service: npm run dev[39m
+[09:13:00.526] [32mINFO[39m (31317): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:13:00.527] [32mINFO[39m (31317): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:15:04 AM [tsx] change in ./src/commands/index.ts Restarting...
+[09:15:04.817] [32mINFO[39m (31317): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:15:04.819] [32mINFO[39m (31317): [36mHealth-check server closed[39m
+[09:15:05.319] [32mINFO[39m (31317): [36mShutdown complete[39m
+[09:15:06.413] [32mINFO[39m (31371): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:15:06.415] [32mINFO[39m (HfzBot/31371): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:15:06.415] [32mINFO[39m (31371): [36mRun the bot service: npm run dev[39m
+[09:15:06.415] [32mINFO[39m (31371): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:15:06.416] [32mINFO[39m (31371): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:15:13 AM [tsx] change in ./src/commands/index.ts Restarting...
+[09:15:13.870] [32mINFO[39m (31371): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:15:13.871] [32mINFO[39m (31371): [36mHealth-check server closed[39m
+[09:15:14.371] [32mINFO[39m (31371): [36mShutdown complete[39m
+[09:15:15.351] [32mINFO[39m (31395): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:15:15.354] [32mINFO[39m (HfzBot/31395): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:15:15.354] [32mINFO[39m (31395): [36mRun the bot service: npm run dev[39m
+[09:15:15.354] [32mINFO[39m (31395): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:15:15.356] [32mINFO[39m (31395): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:15:22 AM [tsx] change in ./src/commands/tools.ts Restarting...
+[09:15:22.389] [32mINFO[39m (31395): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:15:22.390] [32mINFO[39m (31395): [36mHealth-check server closed[39m
+[09:15:22.890] [32mINFO[39m (31395): [36mShutdown complete[39m
+[09:15:23.874] [32mINFO[39m (31435): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:15:23.875] [32mINFO[39m (HfzBot/31435): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:15:23.875] [32mINFO[39m (31435): [36mRun the bot service: npm run dev[39m
+[09:15:23.875] [32mINFO[39m (31435): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:15:23.876] [32mINFO[39m (31435): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:15:36 AM [tsx] change in ./src/commands/index.ts Restarting...
+[09:15:36.530] [32mINFO[39m (31435): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:15:36.531] [32mINFO[39m (31435): [36mHealth-check server closed[39m
+[09:15:37.032] [32mINFO[39m (31435): [36mShutdown complete[39m
+[09:15:37.882] [32mINFO[39m (31479): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:15:37.885] [32mINFO[39m (HfzBot/31479): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:15:37.885] [32mINFO[39m (31479): [36mRun the bot service: npm run dev[39m
+[09:15:37.885] [32mINFO[39m (31479): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:15:37.886] [32mINFO[39m (31479): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:15:40 AM [tsx] change in ./src/services/synox.ts Restarting...
+[09:15:40.025] [32mINFO[39m (31479): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:15:40.026] [32mINFO[39m (31479): [36mHealth-check server closed[39m
+[09:15:40.525] [32mINFO[39m (31479): [36mShutdown complete[39m
+[09:15:41.935] [32mINFO[39m (31500): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:15:41.938] [32mINFO[39m (HfzBot/31500): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:15:41.938] [32mINFO[39m (31500): [36mRun the bot service: npm run dev[39m
+[09:15:41.938] [32mINFO[39m (31500): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:15:41.940] [32mINFO[39m (31500): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:15:50 AM [tsx] Previous process hasn't exited yet. Force killing...

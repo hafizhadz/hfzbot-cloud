@@ -1,0 +1,135 @@
+
+> hfzbot-cloud-server@1.0.0 dev
+> tsx watch src/index.ts
+
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`password`, `main`.`User`.`googleId`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`avatar`, `main`.`User`.`status`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE (`main`.`SubscriptionPlan`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) LIMIT ? OFFSET ?
+prisma:query DELETE FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?)
+prisma:query INSERT INTO `main`.`Subscription` (`id`, `userId`, `planId`, `status`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `planId` AS `planId`, `startedAt` AS `startedAt`, `expiresAt` AS `expiresAt`, `status` AS `status`, `paymentId` AS `paymentId`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE (`main`.`SubscriptionPlan`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`password`, `main`.`User`.`googleId`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`avatar`, `main`.`User`.`status`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE (`main`.`SubscriptionPlan`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) LIMIT ? OFFSET ?
+prisma:query DELETE FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?)
+prisma:query INSERT INTO `main`.`Subscription` (`id`, `userId`, `planId`, `status`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `planId` AS `planId`, `startedAt` AS `startedAt`, `expiresAt` AS `expiresAt`, `status` AS `status`, `paymentId` AS `paymentId`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE (`main`.`SubscriptionPlan`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`password`, `main`.`User`.`googleId`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`avatar`, `main`.`User`.`status`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`avatar`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`status`, `main`.`User`.`createdAt` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`avatar`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`status`, `main`.`User`.`createdAt` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`active` = ? ORDER BY `main`.`SubscriptionPlan`.`durationDays` ASC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` IN (?,?)) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`active` = ? ORDER BY `main`.`SubscriptionPlan`.`durationDays` ASC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` IN (?,?)) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE (`main`.`SubscriptionPlan`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) LIMIT ? OFFSET ?
+prisma:query DELETE FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?)
+prisma:query INSERT INTO `main`.`Subscription` (`id`, `userId`, `planId`, `status`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `planId` AS `planId`, `startedAt` AS `startedAt`, `expiresAt` AS `expiresAt`, `status` AS `status`, `paymentId` AS `paymentId`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE (`main`.`SubscriptionPlan`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`password`, `main`.`User`.`googleId`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`avatar`, `main`.`User`.`status`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` IN (?,?)) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+3:05:33 AM [tsx] change in ./src/services/auth.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+3:05:42 AM [tsx] change in ./src/services/auth.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+3:05:58 AM [tsx] change in ./src/validators/auth.validator.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+3:06:06 AM [tsx] change in ./src/controllers/auth.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+3:06:20 AM [tsx] change in ./src/controllers/auth.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+3:06:25 AM [tsx] change in ./src/controllers/auth.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+
+SIGTERM received. Shutting down gracefully...
+3:06:38 AM [tsx] Previous process hasn't exited yet. Force killing...

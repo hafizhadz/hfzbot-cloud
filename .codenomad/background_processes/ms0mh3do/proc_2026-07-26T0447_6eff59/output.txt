@@ -1,0 +1,75 @@
+
+> hfzbot-cloud-server@1.0.0 dev
+> tsx watch src/index.ts
+
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`password`, `main`.`User`.`googleId`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`avatar`, `main`.`User`.`status`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`maxDevices`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`active` = ? ORDER BY `main`.`SubscriptionPlan`.`durationDays` ASC LIMIT ? OFFSET ?
+11:47:29 AM [tsx] change in ./src/services/subscription.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+11:47:40 AM [tsx] change in ./src/services/subscription.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+11:47:47 AM [tsx] change in ./src/services/subscription.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+11:48:04 AM [tsx] change in ./src/services/subscription.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+
+SIGTERM received. Shutting down gracefully...
+11:48:21 AM [tsx] Previous process hasn't exited yet. Force killing...

@@ -1,0 +1,49 @@
+
+> hfzbot-cloud-server@1.0.0 dev
+> tsx watch src/index.ts
+
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+[ERROR] Error: OAuth 2.0 authentication requires session support when using state. Did you forget to use express-session middleware?
+Error: OAuth 2.0 authentication requires session support when using state. Did you forget to use express-session middleware?
+    at SessionStore.store (/home/mhafizha/realwebsite/server/node_modules/passport-oauth2/lib/state/session.js:39:39)
+    at OAuth2Strategy.authenticate (/home/mhafizha/realwebsite/server/node_modules/passport-oauth2/lib/strategy.js:297:28)
+    at attempt (/home/mhafizha/realwebsite/server/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/mhafizha/realwebsite/server/node_modules/passport/lib/middleware/authenticate.js:379:7)
+    at googleAuth (/home/mhafizha/realwebsite/server/src/controllers/auth.controller.ts:213:4)
+    at Layer.handleRequest (/home/mhafizha/realwebsite/server/node_modules/router/lib/layer.js:152:17)
+    at next (/home/mhafizha/realwebsite/server/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/mhafizha/realwebsite/server/node_modules/router/lib/route.js:117:3)
+    at handle (/home/mhafizha/realwebsite/server/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/mhafizha/realwebsite/server/node_modules/router/lib/layer.js:152:17)
+2:14:26 AM [tsx] change in ./src/config/passport.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+
+SIGTERM received. Shutting down gracefully...
+
+SIGTERM received. Shutting down gracefully...
+2:17:30 AM [tsx] Previous process hasn't exited yet. Force killing...

@@ -1,0 +1,11 @@
+
+> hfzbot-cloud-frontend@0.1.0 dev
+> vite
+
+12:54:29 AM [vite] (client) Re-optimizing dependencies because lockfile has changed
+
+  VITE v8.1.5  ready in 341 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+1:17:31 AM [vite] changed tsconfig file detected: /home/mhafizha/realwebsite/frontend/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.

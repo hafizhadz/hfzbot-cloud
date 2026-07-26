@@ -1,0 +1,17 @@
+/vendor/
+/node_modules/
+/.env
+/.env.production
+/.phpunit.result.cache
+storage/app/public/
+storage/framework/cache/data/
+storage/framework/sessions/
+storage/framework/views/
+storage/logs/.gitkeep
+bootstrap/cache/config.php
+bootstrap/cache/packages.php
+bootstrap/cache/routes.php
+bootstrap/cache/services.php
+.DS_Store
+Thumbs.db
+*.log

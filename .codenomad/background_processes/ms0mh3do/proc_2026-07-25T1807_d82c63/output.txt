@@ -1,0 +1,123 @@
+
+> hfzbot-cloud-server@1.0.0 dev
+> tsx watch src/index.ts
+
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:10:11 AM [tsx] change in ./src/controllers/auth.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:10:20 AM [tsx] change in ./src/controllers/auth.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:10:24 AM [tsx] change in ./src/routes/auth.routes.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:10:52 AM [tsx] change in ./src/middleware/auth.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:10:55 AM [tsx] change in ./src/controllers/auth.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:12:26 AM [tsx] change in ./src/controllers/auth.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:12:28 AM [tsx] change in ./src/services/auth.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+
+SIGTERM received. Shutting down gracefully...
+1:12:47 AM [tsx] Previous process hasn't exited yet. Force killing...

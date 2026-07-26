@@ -1,0 +1,129 @@
+
+> hfzbot-cloud-server@1.0.0 dev
+> tsx watch src/index.ts
+
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`password`, `main`.`User`.`googleId`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`avatar`, `main`.`User`.`status`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Bot`.`id`, `main`.`Bot`.`userId`, `main`.`Bot`.`name`, `main`.`Bot`.`phoneNumber`, `main`.`Bot`.`status`, `main`.`Bot`.`sessionData`, `main`.`Bot`.`lastConnectedAt`, `main`.`Bot`.`createdAt`, `main`.`Bot`.`updatedAt` FROM `main`.`Bot` WHERE (`main`.`Bot`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Bot`.`id`, `main`.`Bot`.`userId`, `main`.`Bot`.`name`, `main`.`Bot`.`phoneNumber`, `main`.`Bot`.`status`, `main`.`Bot`.`sessionData`, `main`.`Bot`.`lastConnectedAt`, `main`.`Bot`.`createdAt`, `main`.`Bot`.`updatedAt` FROM `main`.`Bot` WHERE (`main`.`Bot`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query UPDATE `main`.`Bot` SET `status` = ?, `updatedAt` = ? WHERE (`main`.`Bot`.`id` = ? AND 1=1) RETURNING `id` AS `id`, `userId` AS `userId`, `name` AS `name`, `phoneNumber` AS `phoneNumber`, `status` AS `status`, `sessionData` AS `sessionData`, `lastConnectedAt` AS `lastConnectedAt`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`password`, `main`.`User`.`googleId`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`avatar`, `main`.`User`.`status`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Bot`.`id`, `main`.`Bot`.`userId`, `main`.`Bot`.`name`, `main`.`Bot`.`phoneNumber`, `main`.`Bot`.`status`, `main`.`Bot`.`sessionData`, `main`.`Bot`.`lastConnectedAt`, `main`.`Bot`.`createdAt`, `main`.`Bot`.`updatedAt`, COALESCE(`aggr_selection_0_Group`.`_aggr_count_groups`, 0) AS `_aggr_count_groups` FROM `main`.`Bot` LEFT JOIN (SELECT `main`.`Group`.`botId`, COUNT(*) AS `_aggr_count_groups` FROM `main`.`Group` WHERE 1=1 GROUP BY `main`.`Group`.`botId`) AS `aggr_selection_0_Group` ON (`main`.`Bot`.`id` = `aggr_selection_0_Group`.`botId`) WHERE (`main`.`Bot`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+[ERROR] NotFoundError: No pending subscription found
+NotFoundError: No pending subscription found
+    at Module.cancelSubscription (/home/mhafizha/realwebsite/server/src/services/subscription.service.ts:215:11)
+    at async cancelSubscription (/home/mhafizha/realwebsite/server/src/controllers/subscription.controller.ts:116:5)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`avatar`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`status`, `main`.`User`.`createdAt` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`name`, `main`.`User`.`email`, `main`.`User`.`avatar`, `main`.`User`.`emailVerifiedAt`, `main`.`User`.`status`, `main`.`User`.`createdAt` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`active` = ? ORDER BY `main`.`SubscriptionPlan`.`durationDays` ASC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` IN (?,?)) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`active` = ? ORDER BY `main`.`SubscriptionPlan`.`durationDays` ASC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` IN (?,?)) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Bot`.`id`, `main`.`Bot`.`userId`, `main`.`Bot`.`name`, `main`.`Bot`.`phoneNumber`, `main`.`Bot`.`status`, `main`.`Bot`.`sessionData`, `main`.`Bot`.`lastConnectedAt`, `main`.`Bot`.`createdAt`, `main`.`Bot`.`updatedAt`, COALESCE(`aggr_selection_0_Group`.`_aggr_count_groups`, 0) AS `_aggr_count_groups` FROM `main`.`Bot` LEFT JOIN (SELECT `main`.`Group`.`botId`, COUNT(*) AS `_aggr_count_groups` FROM `main`.`Group` WHERE 1=1 GROUP BY `main`.`Group`.`botId`) AS `aggr_selection_0_Group` ON (`main`.`Bot`.`id` = `aggr_selection_0_Group`.`botId`) WHERE (`main`.`Bot`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` IN (?,?)) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Bot`.`id`, `main`.`Bot`.`userId`, `main`.`Bot`.`name`, `main`.`Bot`.`phoneNumber`, `main`.`Bot`.`status`, `main`.`Bot`.`sessionData`, `main`.`Bot`.`lastConnectedAt`, `main`.`Bot`.`createdAt`, `main`.`Bot`.`updatedAt` FROM `main`.`Bot` WHERE (`main`.`Bot`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Group`.`id`, `main`.`Group`.`botId`, `main`.`Group`.`groupJid`, `main`.`Group`.`groupName`, `main`.`Group`.`groupPhoto`, `main`.`Group`.`memberCount`, `main`.`Group`.`isActive`, `main`.`Group`.`joinedAt`, `main`.`Group`.`createdAt`, `main`.`Group`.`updatedAt` FROM `main`.`Group` WHERE `main`.`Group`.`botId` = ? ORDER BY `main`.`Group`.`joinedAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Bot`.`id`, `main`.`Bot`.`userId`, `main`.`Bot`.`name`, `main`.`Bot`.`phoneNumber`, `main`.`Bot`.`status`, `main`.`Bot`.`sessionData`, `main`.`Bot`.`lastConnectedAt`, `main`.`Bot`.`createdAt`, `main`.`Bot`.`updatedAt`, COALESCE(`aggr_selection_0_Group`.`_aggr_count_groups`, 0) AS `_aggr_count_groups` FROM `main`.`Bot` LEFT JOIN (SELECT `main`.`Group`.`botId`, COUNT(*) AS `_aggr_count_groups` FROM `main`.`Group` WHERE 1=1 GROUP BY `main`.`Group`.`botId`) AS `aggr_selection_0_Group` ON (`main`.`Bot`.`id` = `aggr_selection_0_Group`.`botId`) WHERE (`main`.`Bot`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` IN (?,?)) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Bot`.`id`, `main`.`Bot`.`userId`, `main`.`Bot`.`name`, `main`.`Bot`.`phoneNumber`, `main`.`Bot`.`status`, `main`.`Bot`.`sessionData`, `main`.`Bot`.`lastConnectedAt`, `main`.`Bot`.`createdAt`, `main`.`Bot`.`updatedAt` FROM `main`.`Bot` WHERE (`main`.`Bot`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Group`.`id`, `main`.`Group`.`botId`, `main`.`Group`.`groupJid`, `main`.`Group`.`groupName`, `main`.`Group`.`groupPhoto`, `main`.`Group`.`memberCount`, `main`.`Group`.`isActive`, `main`.`Group`.`joinedAt`, `main`.`Group`.`createdAt`, `main`.`Group`.`updatedAt` FROM `main`.`Group` WHERE `main`.`Group`.`botId` = ? ORDER BY `main`.`Group`.`joinedAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Bot`.`id`, `main`.`Bot`.`userId`, `main`.`Bot`.`name`, `main`.`Bot`.`phoneNumber`, `main`.`Bot`.`status`, `main`.`Bot`.`sessionData`, `main`.`Bot`.`lastConnectedAt`, `main`.`Bot`.`createdAt`, `main`.`Bot`.`updatedAt`, COALESCE(`aggr_selection_0_Group`.`_aggr_count_groups`, 0) AS `_aggr_count_groups` FROM `main`.`Bot` LEFT JOIN (SELECT `main`.`Group`.`botId`, COUNT(*) AS `_aggr_count_groups` FROM `main`.`Group` WHERE 1=1 GROUP BY `main`.`Group`.`botId`) AS `aggr_selection_0_Group` ON (`main`.`Bot`.`id` = `aggr_selection_0_Group`.`botId`) WHERE (`main`.`Bot`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` IN (?,?)) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` = ?) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Bot`.`id`, `main`.`Bot`.`userId`, `main`.`Bot`.`name`, `main`.`Bot`.`phoneNumber`, `main`.`Bot`.`status`, `main`.`Bot`.`sessionData`, `main`.`Bot`.`lastConnectedAt`, `main`.`Bot`.`createdAt`, `main`.`Bot`.`updatedAt`, COALESCE(`aggr_selection_0_Group`.`_aggr_count_groups`, 0) AS `_aggr_count_groups` FROM `main`.`Bot` LEFT JOIN (SELECT `main`.`Group`.`botId`, COUNT(*) AS `_aggr_count_groups` FROM `main`.`Group` WHERE 1=1 GROUP BY `main`.`Group`.`botId`) AS `aggr_selection_0_Group` ON (`main`.`Bot`.`id` = `aggr_selection_0_Group`.`botId`) WHERE (`main`.`Bot`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`userId` = ? AND `main`.`Subscription`.`status` IN (?,?)) ORDER BY `main`.`Subscription`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SubscriptionPlan`.`id`, `main`.`SubscriptionPlan`.`name`, `main`.`SubscriptionPlan`.`price`, `main`.`SubscriptionPlan`.`durationDays`, `main`.`SubscriptionPlan`.`active`, `main`.`SubscriptionPlan`.`createdAt`, `main`.`SubscriptionPlan`.`updatedAt` FROM `main`.`SubscriptionPlan` WHERE `main`.`SubscriptionPlan`.`id` IN (?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+2:36:24 AM [tsx] change in ./src/services/auth.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+2:36:36 AM [tsx] change in ./src/services/auth.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+2:37:34 AM [tsx] change in ./src/config/env.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+2:38:00 AM [tsx] change in ./src/services/payment.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+2:38:45 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+SIGTERM received. Shutting down gracefully...

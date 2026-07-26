@@ -1,0 +1,177 @@
+{
+  "version": 3,
+  "skills": {
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
+      "installedAt": "2026-06-23T07:52:55.244Z",
+      "updatedAt": "2026-06-23T07:52:55.244Z"
+    },
+    "nextjs-app-router-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/wshobson/agents.git",
+      "skillPath": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md",
+      "skillFolderHash": "a4c1ad78df67850628ebc3d6b7210f48b846942c",
+      "installedAt": "2026-06-23T07:54:34.762Z",
+      "updatedAt": "2026-06-23T07:54:34.762Z"
+    },
+    "ui-ux-pro-max": {
+      "source": "nexu-io/open-design",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/nexu-io/open-design.git",
+      "skillPath": "skills/ui-ux-pro-max/SKILL.md",
+      "skillFolderHash": "4d0b47d7f681fff9bca47b2fb6986319f2df9f0a",
+      "installedAt": "2026-06-23T13:54:16.074Z",
+      "updatedAt": "2026-06-23T13:54:16.074Z"
+    },
+    "react-nextjs-development": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "skillPath": "skills/react-nextjs-development/SKILL.md",
+      "skillFolderHash": "1f3a77218f8386892e9088864cfd4cc363e3378c",
+      "installedAt": "2026-06-23T13:54:35.208Z",
+      "updatedAt": "2026-06-23T13:54:35.208Z"
+    },
+    "framer-motion-animator": {
+      "source": "patricio0312rev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/patricio0312rev/skills.git",
+      "skillPath": "frontend/framer-motion-animator/SKILL.md",
+      "skillFolderHash": "6a87b2e36a814f630f15f887efa28a19094ee45c",
+      "installedAt": "2026-06-24T04:28:05.813Z",
+      "updatedAt": "2026-07-19T07:35:58.910Z"
+    },
+    "gsap-framer-scroll-animation": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/github/awesome-copilot.git",
+      "skillPath": "skills/gsap-framer-scroll-animation/SKILL.md",
+      "skillFolderHash": "b67d31bd2cd4e33cd22874c35ff35c4359fd9b8f",
+      "installedAt": "2026-06-24T04:28:15.208Z",
+      "updatedAt": "2026-06-24T04:28:15.208Z"
+    },
+    "animation-designer": {
+      "source": "daffy0208/ai-dev-standards",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/daffy0208/ai-dev-standards.git",
+      "skillPath": "skills/animation-designer/SKILL.md",
+      "skillFolderHash": "410bf20d7920f2b149beb5842c2f89ab92504ba5",
+      "installedAt": "2026-06-24T04:28:19.644Z",
+      "updatedAt": "2026-07-19T07:36:03.158Z"
+    },
+    "ui-animation": {
+      "source": "mblode/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mblode/agent-skills.git",
+      "skillPath": "skills/ui-animation/SKILL.md",
+      "skillFolderHash": "efb8b5a77d81d0c58f72555e9d05f0001b3b728a",
+      "installedAt": "2026-06-24T16:21:58.637Z",
+      "updatedAt": "2026-06-24T16:21:58.637Z"
+    },
+    "tailwind-css": {
+      "source": "paulrberg/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/paulrberg/agent-skills.git",
+      "skillPath": "skills/tailwind-css/SKILL.md",
+      "skillFolderHash": "dcc050cd858e775f5755a40f41eb1deadb34842f",
+      "installedAt": "2026-06-24T16:21:59.674Z",
+      "updatedAt": "2026-06-24T16:21:59.674Z"
+    },
+    "review-animations": {
+      "source": "emilkowalski/skill",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/emilkowalski/skill.git",
+      "skillPath": "skills/review-animations/SKILL.md",
+      "skillFolderHash": "babe81c1ca0ae3c735fc537486cb120cd6645198",
+      "installedAt": "2026-06-24T16:22:00.069Z",
+      "updatedAt": "2026-06-24T16:22:00.069Z"
+    },
+    "clerk-nextjs-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/frameworks/clerk-nextjs-patterns/SKILL.md",
+      "skillFolderHash": "c9ea4d8c283060482ce7d2d44d0df257b3a13ea9",
+      "pluginName": "frameworks",
+      "installedAt": "2026-06-24T16:22:01.313Z",
+      "updatedAt": "2026-06-24T16:22:01.313Z"
+    },
+    "hyperframes-animation": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/heygen-com/hyperframes.git",
+      "skillPath": "skills/hyperframes-animation/SKILL.md",
+      "skillFolderHash": "0838b21fa82ad1883ec529e736a973ed6ebc6e72",
+      "installedAt": "2026-06-24T16:22:09.549Z",
+      "updatedAt": "2026-06-24T16:22:09.549Z"
+    },
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
+      "skillPath": "skills/agent-browser/SKILL.md",
+      "skillFolderHash": "9b31e495b887e4ca123960415eca69fc7e1bba28",
+      "installedAt": "2026-06-26T04:13:09.060Z",
+      "updatedAt": "2026-06-26T04:13:09.060Z"
+    },
+    "browser-use": {
+      "source": "browser-use/browser-use",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/browser-use/browser-use.git",
+      "skillPath": "skills/browser-use/SKILL.md",
+      "skillFolderHash": "ce9e6ec52f2c23a06c05ea81bad90eead33f088e",
+      "installedAt": "2026-06-26T04:13:16.590Z",
+      "updatedAt": "2026-06-26T04:13:16.590Z"
+    },
+    "playwright-automation-fill-in-form": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/github/awesome-copilot.git",
+      "skillPath": "skills/playwright-automation-fill-in-form/SKILL.md",
+      "skillFolderHash": "dba0fe8e328bdc37d6c851d2367671fed9ae6c5d",
+      "installedAt": "2026-06-26T04:13:28.250Z",
+      "updatedAt": "2026-06-26T04:13:28.250Z"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "skillFolderHash": "3116f3e62dbd02b44a598b1aa690d2a8938e8f89",
+      "installedAt": "2026-07-19T07:35:44.839Z",
+      "updatedAt": "2026-07-19T07:35:44.839Z"
+    },
+    "design-guide": {
+      "source": "getpaperclipai/paperclip",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/getpaperclipai/paperclip.git",
+      "skillPath": ".claude/skills/design-guide/SKILL.md",
+      "skillFolderHash": "24ce20703ea0a16c6d4f2ad990e1db218cb83b33",
+      "installedAt": "2026-07-19T07:35:54.638Z",
+      "updatedAt": "2026-07-19T07:35:54.638Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "antigravity-cli",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-code-cli",
+    "opencode",
+    "warp",
+    "zed"
+  ]
+}

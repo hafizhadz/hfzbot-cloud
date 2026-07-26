@@ -1,0 +1,48 @@
+
+> hfzbot-cloud-frontend@0.1.0 dev
+> vite
+
+
+  VITE v8.1.5  ready in 384 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+2:08:00 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:08:13 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:08:31 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:08:47 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:08:54 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:09:06 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:09:10 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:09:43 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:12:19 AM [vite] (client) hmr update /src/index.css, /src/hooks/use-auth.tsx
+2:12:23 AM [vite] (client) hmr update /src/index.css, /src/hooks/use-auth.tsx
+2:12:30 AM [vite] (client) hmr update /src/index.css, /src/hooks/use-auth.tsx
+2:12:34 AM [vite] (client) hmr update /src/index.css, /src/hooks/use-auth.tsx
+2:12:41 AM [vite] (client) hmr update /src/App.tsx, /src/index.css
+2:12:45 AM [vite] (client) hmr update /src/App.tsx, /src/index.css
+2:12:52 AM [vite] (client) hmr update /src/index.css, /src/pages/login.tsx
+2:18:21 AM [vite] (client) hmr update /src/index.css, /src/pages/login.tsx
+2:18:34 AM [vite] (client) hmr update /src/index.css
+2:21:15 AM [vite] (client) dependency optimized: @base-ui/react/separator
+2:26:42 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:26:58 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:27:03 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:27:15 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:27:28 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:27:51 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:28:05 AM [vite] (client) hmr update /src/index.css, /src/pages/landing.tsx
+2:39:36 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx, /src/pages/dashboard/bot.tsx, /src/pages/dashboard/subscription.tsx
+2:39:48 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/subscription.tsx
+2:40:26 AM [vite] (client) hmr update /src/index.css
+2:40:39 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/subscription.tsx
+2:41:00 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/subscription.tsx
+2:41:00 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+2:41:18 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/subscription.tsx
+2:41:18 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+2:41:18 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+2:41:37 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+2:42:05 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+2:45:21 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/subscription.tsx
+2:47:04 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/subscription.tsx
+2:47:50 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx, /src/pages/dashboard/bot.tsx, /src/pages/dashboard/subscription.tsx

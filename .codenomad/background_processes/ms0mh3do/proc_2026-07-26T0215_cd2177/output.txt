@@ -1,0 +1,88 @@
+
+> hfzbot-cloud-bot@1.0.0 dev
+> tsx watch src/index.ts
+
+[09:15:58.289] [32mINFO[39m (31567): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:15:58.292] [32mINFO[39m (HfzBot/31567): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:15:58.292] [32mINFO[39m (31567): [36mRun the bot service: npm run dev[39m
+[09:15:58.292] [32mINFO[39m (31567): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:15:58.293] [32mINFO[39m (31567): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:31:49 AM [tsx] change in ./src/commands/index.ts Restarting...
+[09:31:49.408] [32mINFO[39m (31567): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:31:49.410] [32mINFO[39m (31567): [36mHealth-check server closed[39m
+[09:31:49.911] [32mINFO[39m (31567): [36mShutdown complete[39m
+[09:31:51.259] [33mWARN[39m (31640): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[09:31:51.259] [32mINFO[39m (31640): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:31:51.261] [32mINFO[39m (HfzBot/31640): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:31:51.261] [32mINFO[39m (31640): [36mRun the bot service: npm run dev[39m
+[09:31:51.261] [32mINFO[39m (31640): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:31:51.262] [32mINFO[39m (31640): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:32:05 AM [tsx] change in ./src/commands/index.ts Restarting...
+[09:32:05.903] [32mINFO[39m (31640): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:32:05.904] [32mINFO[39m (31640): [36mHealth-check server closed[39m
+[09:32:06.405] [32mINFO[39m (31640): [36mShutdown complete[39m
+[09:32:07.336] [33mWARN[39m (31685): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[09:32:07.336] [32mINFO[39m (31685): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:32:07.338] [32mINFO[39m (HfzBot/31685): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:32:07.338] [32mINFO[39m (31685): [36mRun the bot service: npm run dev[39m
+[09:32:07.338] [32mINFO[39m (31685): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:32:07.339] [32mINFO[39m (31685): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:32:09 AM [tsx] change in ./src/commands/primbon-encrypt.ts Restarting...
+[09:32:09.927] [32mINFO[39m (31685): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:32:09.928] [32mINFO[39m (31685): [36mHealth-check server closed[39m
+[09:32:10.429] [32mINFO[39m (31685): [36mShutdown complete[39m
+[09:32:11.331] [33mWARN[39m (31705): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[09:32:11.332] [32mINFO[39m (31705): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:32:11.333] [32mINFO[39m (HfzBot/31705): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:32:11.333] [32mINFO[39m (31705): [36mRun the bot service: npm run dev[39m
+[09:32:11.333] [32mINFO[39m (31705): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:32:11.335] [32mINFO[39m (31705): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:32:23 AM [tsx] change in ./src/commands/primbon-encrypt.ts Restarting...
+[09:32:23.722] [32mINFO[39m (31705): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[09:32:23.723] [32mINFO[39m (31705): [36mHealth-check server closed[39m
+[09:32:24.224] [32mINFO[39m (31705): [36mShutdown complete[39m
+[09:32:25.290] [33mWARN[39m (31747): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[09:32:25.291] [32mINFO[39m (31747): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:32:25.294] [32mINFO[39m (HfzBot/31747): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:32:25.294] [32mINFO[39m (31747): [36mRun the bot service: npm run dev[39m
+[09:32:25.294] [32mINFO[39m (31747): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:32:25.295] [32mINFO[39m (31747): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:32:32 AM [tsx] Previous process hasn't exited yet. Force killing...

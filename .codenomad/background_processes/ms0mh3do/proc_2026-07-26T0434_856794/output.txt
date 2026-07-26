@@ -1,0 +1,62 @@
+
+> hfzbot-cloud-frontend@0.1.0 dev
+> vite
+
+
+  VITE v8.1.5  ready in 547 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+11:37:19 AM [vite] (client) hmr update /src/index.css, /src/components/layout/sidebar.tsx
+11:37:20 AM [vite] (client) hmr update /src/index.css, /src/components/layout/sidebar.tsx
+11:37:38 AM [vite] (client) hmr update /src/App.tsx, /src/index.css
+11:37:51 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+11:37:51 AM [vite] Internal server error: Transform failed with 1 error:
+
+[31m[PARSE_ERROR] [0mExpected `:` but found `Identifier`
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/pages/dashboard/overview.tsx:226:9 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m226 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0mactivities[38;5;249m:[0m[38;5;249m [0m[38;5;249mA[0m[38;5;249mc[0m[38;5;249mt[0m[38;5;249mi[0m[38;5;249mv[0m[38;5;249mi[0m[38;5;249mt[0m[38;5;249my[0m[38;5;249mT[0m[38;5;249my[0m[38;5;249mp[0m[38;5;249me[0m[38;5;249m[[0m[38;5;249m][0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249mu[0m[38;5;249ms[0m[38;5;249me[0m[38;5;249mM[0m[38;5;249me[0m[38;5;249mm[0m[38;5;249mo[0m[38;5;249m([0m[38;5;249m([0m[38;5;249m)[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m>[0m[38;5;249m [0m[38;5;249m{[0m
+ [38;5;240m    │[0m         ─────┬────  
+ [38;5;240m    │[0m              ╰────── `:` expected
+[38;5;246m─────╯[0m
+
+  Plugin: vite:oxc
+  File: /home/mhafizha/realwebsite/frontend/src/pages/dashboard/overview.tsx
+      at transformWithOxc (file:///home/mhafizha/realwebsite/frontend/node_modules/vite/dist/node/chunks/node.js:4033:19)
+      at TransformPluginContext.transform (file:///home/mhafizha/realwebsite/frontend/node_modules/vite/dist/node/chunks/node.js:4104:26)
+      at EnvironmentPluginContainer.transform (file:///home/mhafizha/realwebsite/frontend/node_modules/vite/dist/node/chunks/node.js:30201:51)
+      at async loadAndTransform (file:///home/mhafizha/realwebsite/frontend/node_modules/vite/dist/node/chunks/node.js:20124:26)
+      at async viteTransformMiddleware (file:///home/mhafizha/realwebsite/frontend/node_modules/vite/dist/node/chunks/node.js:24604:20)
+11:38:14 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+11:38:27 AM [vite] (client) hmr update /src/index.css, /src/components/layout/sidebar.tsx
+11:38:27 AM [vite] (client) hmr invalidate /src/components/layout/sidebar.tsx Could not Fast Refresh ("navItems" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+11:38:27 AM [vite] (client) hmr update /src/components/layout/dashboard-layout.tsx, /src/components/layout/mobile-nav.tsx
+11:38:35 AM [vite] (client) hmr update /src/index.css, /src/components/layout/sidebar.tsx
+11:38:35 AM [vite] (client) hmr invalidate /src/components/layout/sidebar.tsx Could not Fast Refresh ("navItems" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+11:38:35 AM [vite] (client) hmr update /src/components/layout/dashboard-layout.tsx, /src/components/layout/mobile-nav.tsx
+11:38:57 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+11:39:17 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx
+11:40:44 AM [vite] (client) hmr update /src/index.css, /src/components/layout/sidebar.tsx
+11:40:45 AM [vite] (client) hmr invalidate /src/components/layout/sidebar.tsx Could not Fast Refresh ("navItems" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+11:40:45 AM [vite] (client) hmr update /src/components/layout/dashboard-layout.tsx, /src/components/layout/mobile-nav.tsx
+11:40:49 AM [vite] (client) hmr update /src/index.css, /src/components/layout/sidebar.tsx
+11:40:49 AM [vite] (client) hmr invalidate /src/components/layout/sidebar.tsx Could not Fast Refresh ("navItems" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+11:40:49 AM [vite] (client) hmr update /src/components/layout/dashboard-layout.tsx, /src/components/layout/mobile-nav.tsx
+11:43:17 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/settings.tsx
+11:43:28 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/settings.tsx
+11:46:39 AM [vite] (client) hmr update /src/index.css
+11:46:48 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/subscription.tsx
+6:40:05 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/subscription.tsx
+6:40:18 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/subscription.tsx
+6:43:54 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx, /src/pages/dashboard/overview.tsx
+6:44:09 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx, /src/pages/dashboard/overview.tsx
+6:44:21 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+6:44:28 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+6:44:35 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+6:44:42 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+6:44:48 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+6:46:30 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+6:46:50 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+6:47:10 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx
+6:47:32 PM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/bot.tsx

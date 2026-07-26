@@ -1,0 +1,10 @@
+
+> hfzbot-cloud-frontend@0.1.0 dev
+> vite
+
+
+  VITE v8.1.5  ready in 472 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+11:34:06 AM [vite] (client) hmr update /src/index.css, /src/pages/dashboard/overview.tsx, /src/pages/dashboard/bot.tsx, /src/pages/dashboard/subscription.tsx

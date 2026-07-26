@@ -1,0 +1,95 @@
+
+> hfzbot-cloud-bot@1.0.0 dev
+> tsx watch src/index.ts
+
+[11:10:06.347] [33mWARN[39m (33463): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[11:10:06.348] [32mINFO[39m (33463): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[11:10:06.352] [32mINFO[39m (HfzBot/33463): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[11:10:06.352] [32mINFO[39m (33463): [36mRun the bot service: npm run dev[39m
+[11:10:06.352] [32mINFO[39m (33463): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[11:10:06.353] [32mINFO[39m (33463): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+[11:10:17.477] [32mINFO[39m (33463): [36mLoading auth state[39m
+    [35mauthDir[39m: "auth_state"
+[11:10:17.555] [32mINFO[39m (33463): [36mAuth state loaded[39m
+    [35mhasCreds[39m: true
+[11:10:17.586] [32mINFO[39m (33463): [36mConnecting to WhatsApp...[39m
+[11:10:17.685] [31mERROR[39m (33463): [36mFailed to request pairing code[39m
+    err: {
+      "type": "Error",
+      "message": "Connection Closed",
+      "stack":
+          Error: Connection Closed
+              at sendRawMessage (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:117:10)
+              at sendNode (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:138:10)
+              at Object.requestPairingCode (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:476:9)
+              at async WhatsAppBotService.handleConnectionUpdate (/home/mhafizha/realwebsite/bot-service/src/services/whatsapp.ts:461:24)
+      "data": null,
+      "isBoom": true,
+      "isServer": false,
+      "output": {
+        "statusCode": 428,
+        "payload": {
+          "statusCode": 428,
+          "error": "Precondition Required",
+          "message": "Connection Closed"
+        },
+        "headers": {}
+      }
+    }
+[11:10:17.802] [32mINFO[39m (33463): [36mconnected to WA[39m
+    [35mbrowser[39m: [
+      "Ubuntu",
+      "HfzBot",
+      "22.04.4"
+    ]
+    [35mhelloMsg[39m: {
+      "clientHello": {
+        "ephemeral": "UzusLQ7P/D3DJ/vHBbafZMfH8Ptik//UNrytjh5NnVQ="
+      }
+    }
+[11:10:17.979] [32mINFO[39m (33463): [36mlogging in...[39m
+    [35mnode[39m: {
+      "username": "6281234567890",
+      "passive": false,
+      "userAgent": {
+        "platform": "WEB",
+        "appVersion": {
+          "primary": 2,
+          "secondary": 3000,
+          "tertiary": 1023223821
+        },
+        "mcc": "000",
+        "mnc": "000",
+        "osVersion": "0.1",
+        "device": "Desktop",
+        "osBuildNumber": "0.1",
+        "releaseChannel": "RELEASE",
+        "localeLanguageIso6391": "en",
+        "localeCountryIso31661Alpha2": "US"
+      },
+      "webInfo": {
+        "webSubPlatform": "WEB_BROWSER"
+      },
+      "connectType": "WIFI_UNKNOWN",
+      "connectReason": "USER_ACTIVATED",
+      "pull": true
+    }
+[11:10:21.838] [33mWARN[39m (33463): [36mBot is already connecting or connected[39m
+[11:10:22.458] [32mINFO[39m (33463): [36mconnection errored[39m
+    [35mtrace[39m: "Error: Connection Failure\n    at WebSocketClient.<anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:653:7)\n    at WebSocketClient.emit (node:events:519:28)\n    at <anonymous> (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Socket/socket.ts:327:23)\n    at Object.decodeFrame (/home/mhafizha/realwebsite/bot-service/node_modules/@whiskeysockets/baileys/src/Utils/noise-handler.ts:187:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+[11:10:22.459] [31mERROR[39m (33463): [36mConnection closed[39m
+    [35mstatusCode[39m: 401
+    [35mmessage[39m: "Connection Failure"
+[11:10:22.459] [41mFATAL[49m (33463): [36mLogged out — manual re-authentication required[39m
+[11:10:22.717] [31mERROR[39m (33463): [36mBackend API request failed[39m
+    [35mstatus[39m: 404
+    [35mbody[39m: "{\"success\":false,\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"Route not found\"}}"
+    [35murl[39m: "http://localhost:8000/api/bots/72473e7b-023c-4d97-938a-580a110e23f5/status"
+    [35mmethod[39m: "PATCH"

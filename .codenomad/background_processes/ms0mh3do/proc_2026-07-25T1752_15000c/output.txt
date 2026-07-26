@@ -1,0 +1,9 @@
+
+> hfzbot-cloud-frontend@0.1.0 dev
+> vite
+
+
+  VITE v8.1.5  ready in 345 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose

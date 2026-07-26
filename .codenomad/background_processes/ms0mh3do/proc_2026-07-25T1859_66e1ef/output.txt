@@ -1,0 +1,40 @@
+
+> hfzbot-cloud-server@1.0.0 dev
+> tsx watch src/index.ts
+
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+2:11:54 AM [tsx] change in ./src/controllers/auth.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+
+SIGTERM received. Shutting down gracefully...
+
+SIGTERM received. Shutting down gracefully...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+2:13:29 AM [tsx] Previous process hasn't exited yet. Force killing...

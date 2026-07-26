@@ -1,0 +1,16 @@
+
+> hfzbot-cloud-bot@1.0.0 dev
+> tsx watch src/index.ts
+
+[09:08:23.764] [32mINFO[39m (31059): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[09:08:23.767] [32mINFO[39m (HfzBot/31059): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[09:08:23.767] [32mINFO[39m (31059): [36mRun the bot service: npm run dev[39m
+[09:08:23.767] [32mINFO[39m (31059): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[09:08:23.770] [32mINFO[39m (31059): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:12:50 AM [tsx] Previous process hasn't exited yet. Force killing...

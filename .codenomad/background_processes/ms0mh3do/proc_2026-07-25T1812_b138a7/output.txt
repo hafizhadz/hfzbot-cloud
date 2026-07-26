@@ -1,0 +1,194 @@
+
+> hfzbot-cloud-server@1.0.0 dev
+> tsx watch src/index.ts
+
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:21:02 AM [tsx] change in ./src/config/env.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:22:08 AM [tsx] change in ./src/routes/index.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:22:12 AM [tsx] change in ./src/index.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:22:14 AM [tsx] change in ./src/index.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:23:18 AM [tsx] change in ./src/services/subscription.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:24:07 AM [tsx] change in ./src/controllers/subscription.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:24:08 AM [tsx] change in ./src/controllers/subscription.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:24:09 AM [tsx] change in ./src/controllers/subscription.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:24:14 AM [tsx] change in ./src/controllers/subscription.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:24:25 AM [tsx] change in ./src/controllers/payment.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+1:24:26 AM [tsx] change in ./src/services/payment.service.ts Restarting...
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+1:25:00 AM [tsx] change in ./src/services/payment.service.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+⚠️  Warning: Environment variable GOOGLE_CLIENT_ID is not set
+⚠️  Warning: Environment variable GOOGLE_CLIENT_SECRET is not set
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    
+
+SIGTERM received. Shutting down gracefully...
+1:25:18 AM [tsx] Previous process hasn't exited yet. Force killing...
