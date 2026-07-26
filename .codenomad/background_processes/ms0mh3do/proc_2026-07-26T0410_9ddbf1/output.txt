@@ -149,3 +149,39 @@
     [35murl[39m: "http://localhost:8000/api"
 [22:00:24.568] [32mINFO[39m (44349): [36mBot service listening[39m
     [35mport[39m: 3001
+10:50:58 PM [tsx] change in ./src/utils/env.ts Restarting...
+[22:50:58.770] [32mINFO[39m (44349): [36mShutting down[39m
+    [35msignal[39m: "SIGTERM"
+[22:51:02.442] [33mWARN[39m (45081): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[22:51:02.443] [32mINFO[39m (45081): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+[22:51:02.449] [32mINFO[39m (45081): [36mBot service listening[39m
+    [35mport[39m: 3001
+10:51:04 PM [tsx] change in ./src/services/session-manager.ts Restarting...
+[22:51:04.536] [32mINFO[39m (45081): [36mShutting down[39m
+    [35msignal[39m: "SIGTERM"
+[22:51:06.203] [33mWARN[39m (45103): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[22:51:06.203] [32mINFO[39m (45103): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+[22:51:06.207] [32mINFO[39m (45103): [36mBot service listening[39m
+    [35mport[39m: 3001
+10:51:10 PM [tsx] change in ./src/services/session-manager.ts Restarting...
+[22:51:10.847] [32mINFO[39m (45103): [36mShutting down[39m
+    [35msignal[39m: "SIGTERM"
+[22:51:12.472] [33mWARN[39m (45124): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[22:51:12.473] [32mINFO[39m (45124): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+[22:51:12.476] [32mINFO[39m (45124): [36mBot service listening[39m
+    [35mport[39m: 3001
+10:51:32 PM [tsx] change in ./src/services/session-manager.ts Restarting...
+[22:51:32.650] [32mINFO[39m (45124): [36mShutting down[39m
+    [35msignal[39m: "SIGTERM"
+[22:51:34.551] [33mWARN[39m (45145): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[22:51:34.552] [32mINFO[39m (45145): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+[22:51:34.566] [32mINFO[39m (45145): [36mBot service listening[39m
+    [35mport[39m: 3001

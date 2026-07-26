@@ -44,5 +44,9 @@ export const env = {
   BACKEND_API_URL: optionalEnv("BACKEND_API_URL", "http://localhost:8000/api"),
   BACKEND_BOT_ID: optionalEnv("BACKEND_BOT_ID", ""),
 
+  // ── Proxy (opsional) ──────────────────────────────────────────────────────
+  PROXY_URL: optionalEnv("PROXY_URL", ""), // contoh: http://user:pass@ip:port atau socks5://ip:port
+  PROXY_ENABLED: optionalEnv("PROXY_ENABLED", "false"),
+
   NODE_ENV: optionalEnv("NODE_ENV", "development"),
 } as const

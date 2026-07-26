@@ -5,7 +5,10 @@
 import { Boom } from "@hapi/boom"
 import makeWASocket, { Browsers, DisconnectReason } from "@whiskeysockets/baileys"
 import type { WASocket, WAMessage, ConnectionState, GroupMetadata } from "@whiskeysockets/baileys"
+import { HttpsProxyAgent } from "https-proxy-agent"
+import { SocksProxyAgent } from "socks-proxy-agent"
 import { logger } from "../utils/logger"
+import { env } from "../utils/env"
 import { loadAuthState } from "../utils/session"
 import { getApiClient } from "./api-client"
 
@@ -112,13 +115,27 @@ async function establish(session: SessionData, userId: string): Promise<void> {
     const { state: authState, saveCreds } = await loadAuthState(userId)
     session.saveCreds = saveCreds
 
-    session.state = { userId, status: "connecting" }
-    notifyClients(userId)
+  session.state = { userId, status: "connecting" }
+  notifyClients(userId)
 
-    session.socket = makeWASocket({
-      auth: authState,
-      printQRInTerminal: false,
-      browser: Browsers.ubuntu("HfzBot"),
+  // Create proxy agent if configured
+  let agent: HttpsProxyAgent<string> | SocksProxyAgent | undefined
+  if (env.PROXY_ENABLED === "true" && env.PROXY_URL) {
+    try {
+      agent = env.PROXY_URL.startsWith("socks")
+        ? new SocksProxyAgent(env.PROXY_URL)
+        : new HttpsProxyAgent(env.PROXY_URL)
+      logger.info({ proxy: env.PROXY_URL }, "Using proxy for WhatsApp connection")
+    } catch (err) {
+      logger.error({ err }, "Failed to create proxy agent")
+    }
+  }
+
+  session.socket = makeWASocket({
+    auth: authState,
+    agent,
+    printQRInTerminal: true,
+    browser: Browsers.ubuntu("HfzBot"),
       markOnlineOnConnect: true,
       syncFullHistory: false,
       connectTimeoutMs: 20000,
@@ -155,9 +172,22 @@ function registerHandlers(session: SessionData, userId: string, socket: WASocket
 function handleConnectionUpdate(session: SessionData, userId: string, update: Partial<ConnectionState>): void {
   const { connection, lastDisconnect, qr, isNewLogin } = update
 
-  if (qr && session.pairingPhone) {
-    // Pairing mode - request pairing code
-    if (session.socket) {
+  if (qr && !session.pairingPhone) {
+    // QR mode
+    session.state = { userId, status: "connecting", qr }
+    notifyClients(userId)
+  }
+
+  if (isNewLogin) {
+    logger.info({ userId }, "New login")
+  }
+
+  if (connection === "connecting") {
+    session.state = { ...session.state, status: "connecting" }
+    notifyClients(userId)
+    
+    // If pairing mode, request pairing code immediately
+    if (session.pairingPhone && session.socket) {
       session.socket.requestPairingCode(session.pairingPhone)
         .then(code => {
           session.state = { userId, status: "connecting", pairingCode: code }
@@ -165,12 +195,10 @@ function handleConnectionUpdate(session: SessionData, userId: string, update: Pa
         })
         .catch(err => {
           logger.error({ err, userId }, "Pairing code request failed")
+          session.state = { ...session.state, error: "Gagal dapat kode pairing" }
+          notifyClients(userId)
         })
     }
-  } else if (qr) {
-    // QR mode
-    session.state = { userId, status: "connecting", qr }
-    notifyClients(userId)
   }
 
   if (isNewLogin) {
