@@ -1,8 +1,8 @@
 import { useMultiFileAuthState } from "@whiskeysockets/baileys"
 import type { AuthenticationState } from "@whiskeysockets/baileys"
 
-import { env } from "./env"
-import { logger } from "./logger"
+import { env } from "./env.js"
+import { logger } from "./logger.js"
 
 /**
  * Loads or initialises the multi-file auth state.

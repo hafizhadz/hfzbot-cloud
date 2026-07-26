@@ -1,5 +1,5 @@
-import { env } from "../utils/env"
-import { logger } from "../utils/logger"
+import { env } from "../utils/env.js"
+import { logger } from "../utils/logger.js"
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 

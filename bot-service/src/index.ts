@@ -1,11 +1,11 @@
 import http from "http"
 import { WebSocketServer, WebSocket } from "ws"
 
-import { env } from "./utils/env"
-import { logger } from "./utils/logger"
-import { registerCommands } from "./commands"
-import { connectQR, connectPairing, disconnect, deleteSession, getSessionState, subscribe } from "./services/session-manager"
-import { getApiClient } from "./services/api-client"
+import { env } from "./utils/env.js"
+import { logger } from "./utils/logger.js"
+import { registerCommands } from "./commands/index.js"
+import { connectQR, connectPairing, disconnect, deleteSession, getSessionState, subscribe } from "./services/session-manager.js"
+import { getApiClient } from "./services/api-client.js"
 
 registerCommands()
 

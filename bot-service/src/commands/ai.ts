@@ -1,6 +1,6 @@
 // ── AI Chat ──────────────────────────────────────────────────────────────────
 
-import { synox } from "../services/synox"
+import { synox } from "../services/synox.js"
 
 export const ai = {
   permission: "EVERYONE" as const,

@@ -1,5 +1,5 @@
-import { getRegistry, type Command } from "./registry"
-import { fmt } from "../utils/format"
+import { getRegistry, type Command } from "./registry.js"
+import { fmt } from "../utils/format.js"
 
 export const menuCommand: Command = {
   name: "menu",

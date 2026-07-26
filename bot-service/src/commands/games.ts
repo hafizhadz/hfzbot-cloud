@@ -1,6 +1,6 @@
 // ── Games ────────────────────────────────────────────────────────────────────
 
-import { synox } from "../services/synox"
+import { synox } from "../services/synox.js"
 
 export const quiz = {
   permission: "EVERYONE" as const,

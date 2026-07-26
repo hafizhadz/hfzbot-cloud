@@ -1,4 +1,4 @@
-import type { Command } from "./registry"
+import type { Command } from "./registry.js"
 
 /**
  * .ping — Responds with "Pong!" to verify the bot is alive.

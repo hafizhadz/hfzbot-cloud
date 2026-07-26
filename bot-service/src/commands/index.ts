@@ -1,17 +1,17 @@
-import { getRegistry } from "./registry"
-import type { CommandContext } from "./registry"
-import { fmt, fmtError } from "../utils/format"
-import { pingCommand } from "./ping"
-import { helpCommand } from "./help"
-import { menuCommand } from "./menu"
-import { ai, aicoder } from "./ai"
-import { quiz, caklontong, family100, susunkata, benaratausalah } from "./games"
-import { ig, fb, tiktok } from "./downloader"
-import { cuaca, ssweb, jarak, stalkig, stalkgh, cekwa, darkjoke, berita } from "./tools"
-import { brat, bratvid, blackpink, pubglogo, applemusic, ephoto } from "./canvas"
-import { search, animesearch, animeinfo, animeongoing, animecomplete } from "./search-anime"
-import { harilahir, primbonmimpi, primbonjodoh, encrypt, decrypt, randomimg, jkt48, fakta } from "./primbon-encrypt"
-import { movie, moviehome, soundcloud, komik, komikdetail, cekbpjs, cekpln, cekpajak, tempmail, tempmailinbox, gamelist, gamedetail } from "./extra"
+import { getRegistry } from "./registry.js"
+import type { CommandContext } from "./registry.js"
+import { fmt, fmtError } from "../utils/format.js"
+import { pingCommand } from "./ping.js"
+import { helpCommand } from "./help.js"
+import { menuCommand } from "./menu.js"
+import { ai, aicoder } from "./ai.js"
+import { quiz, caklontong, family100, susunkata, benaratausalah } from "./games.js"
+import { ig, fb, tiktok } from "./downloader.js"
+import { cuaca, ssweb, jarak, stalkig, stalkgh, cekwa, darkjoke, berita } from "./tools.js"
+import { brat, bratvid, blackpink, pubglogo, applemusic, ephoto } from "./canvas.js"
+import { search, animesearch, animeinfo, animeongoing, animecomplete } from "./search-anime.js"
+import { harilahir, primbonmimpi, primbonjodoh, encrypt, decrypt, randomimg, jkt48, fakta } from "./primbon-encrypt.js"
+import { movie, moviehome, soundcloud, komik, komikdetail, cekbpjs, cekpln, cekpajak, tempmail, tempmailinbox, gamelist, gamedetail } from "./extra.js"
 
 export function registerCommands(): void {
   const registry = getRegistry()
@@ -49,5 +49,5 @@ function wrap(cmd: { name: string; execute: (args: string[]) => Promise<string> 
   }
 }
 
-export { getRegistry, CommandRegistry } from "./registry"
-export type { Command, CommandContext, CommandPermission } from "./registry"
+export { getRegistry, CommandRegistry } from "./registry.js"
+export type { Command, CommandContext, CommandPermission } from "./registry.js"

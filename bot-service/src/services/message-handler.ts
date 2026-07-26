@@ -1,10 +1,10 @@
 import { getContentType } from "@whiskeysockets/baileys"
 import type { WAMessage, WASocket } from "@whiskeysockets/baileys"
 
-import { logger } from "../utils/logger"
-import { getRegistry } from "../commands/registry"
-import { handleModeration } from "../modules/moderation"
-import { handleWelcomeMessage } from "../modules/welcome"
+import { logger } from "../utils/logger.js"
+import { getRegistry } from "../commands/registry.js"
+import { handleModeration } from "../modules/moderation.js"
+import { handleWelcomeMessage } from "../modules/welcome.js"
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 

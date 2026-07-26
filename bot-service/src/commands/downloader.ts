@@ -1,6 +1,6 @@
 // ── Downloader ───────────────────────────────────────────────────────────────
 
-import { synox } from "../services/synox"
+import { synox } from "../services/synox.js"
 
 export const ig = {
   permission: "EVERYONE" as const,

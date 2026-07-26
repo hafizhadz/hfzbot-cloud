@@ -9,12 +9,12 @@ import type { WAMessage } from "@whiskeysockets/baileys"
 import { Boom } from "@hapi/boom"
 import qrcode from "qrcode-terminal"
 
-import { env } from "../utils/env"
-import { logger } from "../utils/logger"
-import { loadAuthState } from "../utils/session"
-import { handleIncomingMessage } from "./message-handler"
-import { getApiClient } from "./api-client"
-import { handleParticipantJoin, handleParticipantLeave } from "../modules/welcome"
+import { env } from "../utils/env.js"
+import { logger } from "../utils/logger.js"
+import { loadAuthState } from "../utils/session.js"
+import { handleIncomingMessage } from "./message-handler.js"
+import { getApiClient } from "./api-client.js"
+import { handleParticipantJoin, handleParticipantLeave } from "../modules/welcome.js"
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 

@@ -1,7 +1,7 @@
 // ── Additional Features ──────────────────────────────────────────────────────
 // Movie, Music, Komik, Novel, Check, Uploader, Saweria, Tempmail, Ankergames
 
-import { synox } from "../services/synox"
+import { synox } from "../services/synox.js"
 
 // ── Movie (LK21) ─────────────────────────────────────────────────────────────
 

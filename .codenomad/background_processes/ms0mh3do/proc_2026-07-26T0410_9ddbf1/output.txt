@@ -194,3 +194,30 @@
     [35murl[39m: "http://localhost:8000/api"
 [23:10:07.247] [32mINFO[39m (45377): [36mBot service listening[39m
     [35mport[39m: 3001
+11:35:48 PM [tsx] change in ./src/utils/format.ts Restarting...
+[23:35:48.667] [32mINFO[39m (45377): [36mShutting down[39m
+    [35msignal[39m: "SIGTERM"
+[23:35:51.699] [33mWARN[39m (45624): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[23:35:51.700] [32mINFO[39m (45624): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+[23:35:51.707] [32mINFO[39m (45624): [36mBot service listening[39m
+    [35mport[39m: 3001
+11:36:04 PM [tsx] change in ./src/commands/primbon-encrypt.ts Restarting...
+[23:36:04.520] [32mINFO[39m (45624): [36mShutting down[39m
+    [35msignal[39m: "SIGTERM"
+[23:36:06.243] [33mWARN[39m (45718): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[23:36:06.244] [32mINFO[39m (45718): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+[23:36:06.254] [32mINFO[39m (45718): [36mBot service listening[39m
+    [35mport[39m: 3001
+11:36:21 PM [tsx] change in ./src/utils/session.ts Restarting...
+[23:36:21.923] [32mINFO[39m (45718): [36mShutting down[39m
+    [35msignal[39m: "SIGTERM"
+[23:36:23.702] [33mWARN[39m (45787): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[23:36:23.703] [32mINFO[39m (45787): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+[23:36:23.708] [32mINFO[39m (45787): [36mBot service listening[39m
+    [35mport[39m: 3001

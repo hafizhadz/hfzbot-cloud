@@ -1,5 +1,5 @@
-import { getRegistry, type Command } from "./registry"
-import { fmt } from "../utils/format"
+import { getRegistry, type Command } from "./registry.js"
+import { fmt } from "../utils/format.js"
 
 const specialHelps: Record<string, string> = {
   moderation: [

@@ -2,8 +2,8 @@
 // Welcome messages, goodbye messages, group rules, auto-reply.
 
 import { type WASocket } from "@whiskeysockets/baileys"
-import type { ProcessedMessage } from "../services/message-handler"
-import { fmt } from "../utils/format"
+import type { ProcessedMessage } from "../services/message-handler.js"
+import { fmt } from "../utils/format.js"
 
 // ── Config ───────────────────────────────────────────────────────────────────
 

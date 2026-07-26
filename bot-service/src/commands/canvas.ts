@@ -1,7 +1,7 @@
 // ── Canvas & Ephoto ──────────────────────────────────────────────────────────
 // Image generation with text overlays
 
-import { synox } from "../services/synox"
+import { synox } from "../services/synox.js"
 
 export const brat = {
   name: "brat",

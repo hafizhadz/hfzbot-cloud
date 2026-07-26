@@ -7,10 +7,10 @@ import makeWASocket, { Browsers, DisconnectReason } from "@whiskeysockets/bailey
 import type { WASocket, WAMessage, ConnectionState, GroupMetadata } from "@whiskeysockets/baileys"
 import { HttpsProxyAgent } from "https-proxy-agent"
 import { SocksProxyAgent } from "socks-proxy-agent"
-import { logger } from "../utils/logger"
-import { env } from "../utils/env"
-import { loadAuthState } from "../utils/session"
-import { getApiClient } from "./api-client"
+import { logger } from "../utils/logger.js"
+import { env } from "../utils/env.js"
+import { loadAuthState } from "../utils/session.js"
+import { getApiClient } from "./api-client.js"
 
 export type BotStatus = "offline" | "connecting" | "online" | "disconnected" | "suspended"
 

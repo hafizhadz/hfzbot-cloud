@@ -1,6 +1,6 @@
 import type { WASocket } from "@whiskeysockets/baileys"
 
-import { logger } from "../utils/logger"
+import { logger } from "../utils/logger.js"
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 

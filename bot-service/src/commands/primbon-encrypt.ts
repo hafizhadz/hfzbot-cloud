@@ -1,6 +1,6 @@
 // ── Primbon, Encrypt, Random ────────────────────────────────────────────────
 
-import { synox } from "../services/synox"
+import { synox } from "../services/synox.js"
 
 // ── Primbon (Indonesian Fortune Telling) ─────────────────────────────────────
 

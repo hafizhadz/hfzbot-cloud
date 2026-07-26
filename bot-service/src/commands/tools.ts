@@ -1,6 +1,6 @@
 // ── Tools & Stalker ──────────────────────────────────────────────────────────
 
-import { synox } from "../services/synox"
+import { synox } from "../services/synox.js"
 
 export const cuaca = {
   permission: "EVERYONE" as const,
