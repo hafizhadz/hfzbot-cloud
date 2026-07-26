@@ -9,3 +9,5 @@ auth_state/
 logs/
 .DS_Store
 *.log
+.env
+opencode.json
