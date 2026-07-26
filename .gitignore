@@ -11,3 +11,5 @@ logs/
 *.log
 .env
 opencode.json
+.agents/
+OpenAgentsControl/
