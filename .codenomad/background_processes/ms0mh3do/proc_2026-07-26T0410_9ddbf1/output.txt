@@ -111,3 +111,41 @@
 [21:48:28.191] [32mINFO[39m (43319): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
 [21:48:28.192] [32mINFO[39m (43319): [36mHealth-check server listening[39m
     [35mport[39m: 3001
+9:58:01 PM [tsx] change in ./src/utils/session.ts Restarting...
+[21:58:01.245] [32mINFO[39m (43319): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[21:58:01.250] [32mINFO[39m (43319): [36mHealth-check server closed[39m
+[21:58:01.751] [32mINFO[39m (43319): [36mShutdown complete[39m
+[21:58:03.383] [33mWARN[39m (44128): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[21:58:03.384] [32mINFO[39m (44128): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+    [35mbotId[39m: "72473e7b-023c-4d97-938a-580a110e23f5"
+[21:58:03.386] [32mINFO[39m (HfzBot/44128): [36mBot service initialised — waiting for connection trigger[39m
+    [35menv[39m: "development"
+    [35mhealthPort[39m: 3001
+    [35mbackendConfigured[39m: true
+[21:58:03.386] [32mINFO[39m (44128): [36mRun the bot service: npm run dev[39m
+[21:58:03.386] [32mINFO[39m (44128): [36mCall bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing[39m
+[21:58:03.388] [32mINFO[39m (44128): [36mHealth-check server listening[39m
+    [35mport[39m: 3001
+9:58:24 PM [tsx] change in ./src/index.ts Restarting...
+[21:58:24.157] [32mINFO[39m (44128): [36mShutdown signal received — cleaning up[39m
+    [35msignal[39m: "SIGTERM"
+[21:58:24.162] [32mINFO[39m (44128): [36mHealth-check server closed[39m
+[21:58:24.664] [32mINFO[39m (44128): [36mShutdown complete[39m
+[21:58:26.217] [33mWARN[39m (44177): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[21:58:26.218] [32mINFO[39m (44177): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+[21:58:26.221] [32mINFO[39m (44177): [36mBot service listening[39m
+    [35mport[39m: 3001
+10:00:22 PM [tsx] change in ./src/services/session-manager.ts Restarting...
+[22:00:22.968] [32mINFO[39m (44177): [36mShutting down[39m
+    [35msignal[39m: "SIGTERM"
+[22:00:24.565] [33mWARN[39m (44349): [36mOverwriting existing command[39m
+    [35mcommand[39m: "animeinfo"
+[22:00:24.566] [32mINFO[39m (44349): [36mBackend API client initialised[39m
+    [35murl[39m: "http://localhost:8000/api"
+[22:00:24.568] [32mINFO[39m (44349): [36mBot service listening[39m
+    [35mport[39m: 3001

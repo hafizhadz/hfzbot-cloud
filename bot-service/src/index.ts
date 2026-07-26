@@ -1,236 +1,163 @@
 import http from "http"
+import { WebSocketServer, WebSocket } from "ws"
 
 import { env } from "./utils/env"
 import { logger } from "./utils/logger"
-import { WhatsAppBotService } from "./services/whatsapp"
-import { getApiClient } from "./services/api-client"
 import { registerCommands } from "./commands"
+import { connectQR, connectPairing, disconnect, deleteSession, getSessionState, subscribe } from "./services/session-manager"
+import { getApiClient } from "./services/api-client"
 
-// ── Startup ────────────────────────────────────────────────────────────────────
-
-// Register all built-in commands
 registerCommands()
 
 // ── Backend API client ─────────────────────────────────────────────────────────
 
-// Initialise eagerly to validate env vars at startup
 if (env.BACKEND_API_URL && env.BOT_API_KEY && env.BACKEND_BOT_ID) {
   getApiClient()
-  logger.info(
-    { url: env.BACKEND_API_URL, botId: env.BACKEND_BOT_ID },
-    "Backend API client initialised",
-  )
+  logger.info({ url: env.BACKEND_API_URL }, "Backend API client initialised")
 } else {
-  logger.warn(
-    "Backend API not configured — bot status will not be reported to backend",
-  )
+  logger.warn("Backend API not configured")
 }
 
-// ── Bot Service Instance ───────────────────────────────────────────────────────
+// ── HTTP + WebSocket Server ────────────────────────────────────────────────────
 
-/**
- * Singleton bot service instance.
- * Does NOT auto-connect — the orchestrator (API server) calls
- * `bot.connect()` when the user requests a WhatsApp pairing.
- *
- * Set AUTO_CONNECT=true in env to connect immediately on startup.
- */
-export const bot = new WhatsAppBotService()
-
-// Auto-connect if configured
-if (process.env.AUTO_CONNECT === "true") {
-  bot.connect().catch((error) => {
-    logger.error({ error }, "Auto-connect failed")
-  })
-}
-
-// ── Health-Check HTTP Server ───────────────────────────────────────────────────
-
-/**
- * Minimal HTTP health-check endpoint for process monitoring
- * (Docker health checks, K8s liveness probes, uptime monitors).
- *
- * Responds with:
- * - 200 OK when the bot is online
- * - 503 Service Unavailable when the bot is offline/connecting/disconnected
- * - 503 with "suspended" note when the bot is suspended
- */
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url ?? "/", `http://localhost:${env.HEALTH_PORT}`)
 
-  // ── POST /connect — trigger WhatsApp pairing ──
-  if (req.method === "POST" && url.pathname === "/connect") {
-    try {
-      if (bot.getState().status === "online") {
-        res.writeHead(200, { "Content-Type": "application/json" })
-        res.end(JSON.stringify({ ok: true, message: "Already connected" }))
-        return
-      }
-      bot.connect().catch((err) => logger.error({ err }, "Connect via API failed"))
-      res.writeHead(202, { "Content-Type": "application/json" })
-      res.end(JSON.stringify({ ok: true, message: "Connecting — check QR endpoint for pairing code" }))
-    } catch (err) {
-      res.writeHead(500, { "Content-Type": "application/json" })
-      res.end(JSON.stringify({ ok: false, error: String(err) }))
-    }
-    return
+  // ── CORS ──────────────────────────────────────────────────────────────────
+  res.setHeader("Access-Control-Allow-Origin", "*")
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS")
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type")
+  if (req.method === "OPTIONS") {
+    res.writeHead(204); res.end(); return
   }
 
-  // ── POST /disconnect — disconnect WhatsApp ──
-  if (req.method === "POST" && url.pathname === "/disconnect") {
-    try {
-      await bot.disconnect()
-      res.writeHead(200, { "Content-Type": "application/json" })
-      res.end(JSON.stringify({ ok: true, message: "Disconnected" }))
-    } catch (err) {
-      res.writeHead(500, { "Content-Type": "application/json" })
-      res.end(JSON.stringify({ ok: false, error: String(err) }))
-    }
-    return
-  }
-
-  // ── GET /qr — current QR code ──
-  if (req.method === "GET" && url.pathname === "/qr") {
-    const state = bot.getState()
+  // ── POST /connect/:userId — QR connect ──
+  const connectMatch = req.method === "POST" && url.pathname.match(/^\/connect\/(.+)$/)
+  if (connectMatch) {
+    const userId = connectMatch[1]
+    connectQR(userId).catch(err => logger.error({ err, userId }, "Connect failed"))
     res.writeHead(200, { "Content-Type": "application/json" })
-    res.end(JSON.stringify({ qr: state.qr ?? null, status: state.status }))
+    res.end(JSON.stringify({ ok: true, message: "Connecting", userId }))
     return
   }
 
-  // ── POST /pairing — connect with pairing code ──
-  if (req.method === "POST" && url.pathname === "/pairing") {
+  // ── POST /pairing/:userId — Pairing connect ──
+  const pairingMatch = req.method === "POST" && url.pathname.match(/^\/pairing\/(.+)$/)
+  if (pairingMatch) {
+    const userId = pairingMatch[1]
     let body = ""
     req.on("data", (chunk) => { body += chunk })
     req.on("end", async () => {
       try {
-        const { phone } = JSON.parse(body) as { phone: string }
+        const { phone } = JSON.parse(body)
         if (!phone || phone.length < 10) {
           res.writeHead(400, { "Content-Type": "application/json" })
-          res.end(JSON.stringify({ ok: false, error: "Nomor telepon tidak valid" }))
+          res.end(JSON.stringify({ error: "Nomor tidak valid" }))
           return
         }
-        await bot.connectWithPairingCode(phone)
-        // Wait up to 10s for the pairing code to be generated
+        await connectPairing(userId, phone)
+        // Wait up to 10s for pairing code
         for (let i = 0; i < 20; i++) {
-          const state = bot.getState()
-          if (state.pairingCode) {
+          const state = getSessionState(userId)
+          if (state?.pairingCode) {
             res.writeHead(200, { "Content-Type": "application/json" })
-            res.end(JSON.stringify({ ok: true, pairingCode: state.pairingCode }))
+            res.end(JSON.stringify({ ok: true, pairingCode: state.pairingCode, userId }))
             return
           }
           await new Promise(r => setTimeout(r, 500))
         }
-        res.writeHead(202, { "Content-Type": "application/json" })
-        res.end(JSON.stringify({ ok: true, message: "Pairing code diminta — cek /pairing-code endpoint" }))
+        res.writeHead(200, { "Content-Type": "application/json" })
+        res.end(JSON.stringify({ ok: true, message: "Meminta kode pairing...", userId }))
       } catch {
         res.writeHead(400, { "Content-Type": "application/json" })
-        res.end(JSON.stringify({ ok: false, error: "Format salah. Kirim { phone: \"62812...\" }" }))
+        res.end(JSON.stringify({ error: "Format salah" }))
       }
     })
     return
   }
 
-  // ── GET /pairing-code — get current pairing code ──
-  if (req.method === "GET" && url.pathname === "/pairing-code") {
-    const state = bot.getState()
+  // ── POST /disconnect/:userId ──
+  const disconnectMatch = req.method === "POST" && url.pathname.match(/^\/disconnect\/(.+)$/)
+  if (disconnectMatch) {
+    const userId = disconnectMatch[1]
+    await disconnect(userId)
     res.writeHead(200, { "Content-Type": "application/json" })
-    res.end(JSON.stringify({ pairingCode: state.pairingCode ?? null, status: state.status }))
+    res.end(JSON.stringify({ ok: true, message: "Disconnected", userId }))
     return
   }
 
-  // ── GET /health — health check (default) ──
-  const state = bot.getState()
-
-  const health = {
-    status: "alive",
-    service: env.BOT_NAME,
-    bot: {
-      connection: state.status,
-      lastConnectedAt: state.lastConnectedAt ?? null,
-      hasError: !!state.error,
-      error: state.error ?? null,
-      hasQR: !!state.qr,
-    },
-    config: {
-      backendConfigured: !!(env.BACKEND_API_URL && env.BOT_API_KEY && env.BACKEND_BOT_ID),
-      healthPort: env.HEALTH_PORT,
-      authDir: env.AUTH_DIR,
-    },
-    uptime: process.uptime(),
-    timestamp: new Date().toISOString(),
+  // ── DELETE /session/:userId ──
+  const deleteMatch = req.method === "DELETE" && url.pathname.match(/^\/session\/(.+)$/)
+  if (deleteMatch) {
+    const userId = deleteMatch[1]
+    await deleteSession(userId)
+    res.writeHead(200, { "Content-Type": "application/json" })
+    res.end(JSON.stringify({ ok: true, message: "Session deleted", userId }))
+    return
   }
 
-  // Determine HTTP status code
-  let statusCode: number
-  switch (state.status) {
-    case "online":
-      statusCode = 200
-      break
-    case "suspended":
-      statusCode = 503
-      break
-    default:
-      statusCode = 503
+  // ── GET /status/:userId ──
+  const statusMatch = req.method === "GET" && url.pathname.match(/^\/status\/(.+)$/)
+  if (statusMatch) {
+    const userId = statusMatch[1]
+    const state = getSessionState(userId)
+    res.writeHead(200, { "Content-Type": "application/json" })
+    res.end(JSON.stringify(state ?? { userId, status: "offline" }))
+    return
   }
 
-  res.writeHead(statusCode, { "Content-Type": "application/json" })
-  res.end(JSON.stringify(health, null, 2))
+  // ── GET /health — health check ──
+  if (url.pathname === "/health" || url.pathname === "/") {
+    res.writeHead(200, { "Content-Type": "application/json" })
+    res.end(JSON.stringify({ status: "alive", service: env.BOT_NAME, uptime: process.uptime() }))
+    return
+  }
+
+  // ── 404 ──
+  res.writeHead(404); res.end("Not found")
+})
+
+// ── WebSocket ──────────────────────────────────────────────────────────────────
+
+const wss = new WebSocketServer({ server })
+const wsMap = new Map<string, Set<WebSocket>>()
+
+wss.on("connection", (ws, req) => {
+  const url = new URL(req.url ?? "/", `http://localhost:${env.HEALTH_PORT}`)
+  const userId = url.searchParams.get("userId")
+  if (!userId) { ws.close(); return }
+
+  if (!wsMap.has(userId)) wsMap.set(userId, new Set())
+  wsMap.get(userId)!.add(ws)
+  logger.info({ userId }, "WS client connected")
+
+  // Send current state immediately
+  const state = getSessionState(userId)
+  if (state) ws.send(JSON.stringify(state))
+
+  // Subscribe to future updates using the session manager
+  const unsub = subscribe(userId, (newState) => {
+    try { ws.send(JSON.stringify(newState)) } catch { /* ignore */ }
+  })
+
+  ws.on("close", () => {
+    wsMap.get(userId)?.delete(ws)
+    unsub()
+    logger.info({ userId }, "WS client disconnected")
+  })
 })
 
 server.listen(env.HEALTH_PORT, () => {
-  logger.info(
-    { port: env.HEALTH_PORT },
-    "Health-check server listening",
-  )
+  logger.info({ port: env.HEALTH_PORT }, "Bot service listening")
 })
 
 // ── Graceful Shutdown ──────────────────────────────────────────────────────────
 
 async function shutdown(signal: string): Promise<void> {
-  logger.info({ signal }, "Shutdown signal received — cleaning up")
-
-  // 1. Stop accepting new requests
-  server.close(() => {
-    logger.info("Health-check server closed")
-  })
-
-  // 2. Disconnect WhatsApp bot (graceful — saves session state)
-  await bot.disconnect()
-
-  // 3. Give pending work a moment to finish
-  await sleep(500)
-
-  logger.info("Shutdown complete")
+  logger.info({ signal }, "Shutting down")
+  wss.close()
+  server.close()
   process.exit(0)
 }
-
 process.on("SIGTERM", () => void shutdown("SIGTERM"))
 process.on("SIGINT", () => void shutdown("SIGINT"))
-
-// ── Unhandled Rejection / Exception ────────────────────────────────────────────
-
-process.on("unhandledRejection", (reason) => {
-  logger.error({ reason }, "Unhandled promise rejection")
-})
-
-process.on("uncaughtException", (error) => {
-  logger.error({ error }, "Uncaught exception")
-  process.exit(1)
-})
-
-// ── Startup Log ───────────────────────────────────────────────────────────────
-
-logger.info({
-  name: env.BOT_NAME,
-  env: env.NODE_ENV,
-  healthPort: env.HEALTH_PORT,
-  backendConfigured: !!(env.BACKEND_API_URL && env.BOT_API_KEY && env.BACKEND_BOT_ID),
-}, "Bot service initialised — waiting for connection trigger")
-logger.info("Run the bot service: npm run dev")
-logger.info("Call bot.connect() or set AUTO_CONNECT=true to start WhatsApp pairing")
-
-// ── Utility ────────────────────────────────────────────────────────────────────
-
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}

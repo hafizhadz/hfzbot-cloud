@@ -1364,3 +1364,64 @@ Server closed
   URL:   http://localhost:8000
   API:   http://localhost:8000/api
     
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Subscription`.`id`, `main`.`Subscription`.`userId`, `main`.`Subscription`.`planId`, `main`.`Subscription`.`startedAt`, `main`.`Subscription`.`expiresAt`, `main`.`Subscription`.`status`, `main`.`Subscription`.`paymentId`, `main`.`Subscription`.`createdAt`, `main`.`Subscription`.`updatedAt` FROM `main`.`Subscription` WHERE (`main`.`Subscription`.`status` = ? AND `main`.`Subscription`.`expiresAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Payment`.`id`, `main`.`Payment`.`userId`, `main`.`Payment`.`subscriptionId`, `main`.`Payment`.`amount`, `main`.`Payment`.`currency`, `main`.`Payment`.`gateway`, `main`.`Payment`.`gatewayTxId`, `main`.`Payment`.`status`, `main`.`Payment`.`paidAt`, `main`.`Payment`.`metadata`, `main`.`Payment`.`createdAt`, `main`.`Payment`.`updatedAt` FROM `main`.`Payment` WHERE (`main`.`Payment`.`status` = ? AND `main`.`Payment`.`createdAt` <= ?) LIMIT ? OFFSET ?
+9:58:40 PM [tsx] change in ./src/controllers/bot.controller.ts Restarting...
+
+SIGTERM received. Shutting down gracefully...
+Server closed
+/home/mhafizha/realwebsite/server/node_modules/router/lib/route.js:228
+        throw new TypeError('argument handler must be a function')
+              ^
+
+TypeError: argument handler must be a function
+    at Route.<computed> [as get] (/home/mhafizha/realwebsite/server/node_modules/router/lib/route.js:228:15)
+    at Router.<computed> [as get] (/home/mhafizha/realwebsite/server/node_modules/router/index.js:448:19)
+    at <anonymous> (/home/mhafizha/realwebsite/server/src/routes/bot.routes.ts:15:8)
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v22.23.1
+9:59:23 PM [tsx] change in ./src/controllers/bot.controller.ts Rerunning...
+/home/mhafizha/realwebsite/server/node_modules/router/lib/route.js:228
+        throw new TypeError('argument handler must be a function')
+              ^
+
+TypeError: argument handler must be a function
+    at Route.<computed> [as get] (/home/mhafizha/realwebsite/server/node_modules/router/lib/route.js:228:15)
+    at Router.<computed> [as get] (/home/mhafizha/realwebsite/server/node_modules/router/index.js:448:19)
+    at <anonymous> (/home/mhafizha/realwebsite/server/src/routes/bot.routes.ts:15:8)
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v22.23.1
+9:59:56 PM [tsx] change in ./src/controllers/bot.controller.ts Rerunning...
+✅ Database connected
+[Scheduler] Background tasks started
+
+  🚀  HfzBot Cloud API Server
+  ─────────────────────────────
+  Port:  8000
+  Env:   development
+  URL:   http://localhost:8000
+  API:   http://localhost:8000/api
+    

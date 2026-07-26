@@ -13,20 +13,13 @@ import { logger } from "./logger"
  *
  * @returns The auth state object and a saveCreds callback.
  */
-export async function loadAuthState(): Promise<{
+export async function loadAuthState(userId?: string): Promise<{
   state: AuthenticationState
   saveCreds: () => Promise<void>
 }> {
-  const authDir = env.AUTH_DIR
-
+  const authDir = userId ? `${env.AUTH_DIR}/${userId}` : env.AUTH_DIR
   logger.info({ authDir }, "Loading auth state")
-
   const { state, saveCreds } = await useMultiFileAuthState(authDir)
-
-  logger.info(
-    { hasCreds: Object.keys(state.creds).length > 0 },
-    "Auth state loaded",
-  )
-
+  logger.info({ hasCreds: Object.keys(state.creds).length > 0 }, "Auth state loaded")
   return { state, saveCreds }
 }
