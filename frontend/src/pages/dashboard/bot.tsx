@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import { motion } from "framer-motion";
 import {
   Bot,
@@ -8,8 +8,6 @@ import {
   RefreshCw,
   Plug,
   Unplug,
-  CreditCard,
-  ArrowRight,
   RotateCcw,
   Smartphone,
   KeyRound,
@@ -46,8 +44,7 @@ import {
   resetSession,
   pairingBot,
 } from "@/services/bot.service";
-import { getCurrent } from "@/services/subscription.service";
-import type { Bot as BotType, Subscription } from "@/types";
+import type { Bot as BotType } from "@/types";
 
 /* ── Helpers ── */
 
@@ -255,35 +252,15 @@ function NoBotState({ onCreated }: { onCreated: () => void }) {
 
 /* ── Subscription Gate ── */
 
-function SubscriptionGate() {
-  const navigate = useNavigate();
-  return (
-    <Card className="border-yellow-500/30 bg-yellow-500/5">
-      <CardContent className="flex flex-col items-center py-12 text-center">
-        <CreditCard className="mb-4 size-12 text-yellow-500" />
-        <h2 className="mb-2 text-xl font-semibold">Subscribe to Activate</h2>
-        <p className="mb-6 max-w-md text-sm text-muted-foreground">
-          You need an active subscription to create and manage your WhatsApp bot.
-        </p>
-        <Button onClick={() => navigate("/dashboard/subscription")}>
-          View Plans
-          <ArrowRight className="ml-1.5 size-4" />
-        </Button>
-      </CardContent>
-    </Card>
-  );
-}
 
 /* ── Bot Detail ── */
 
 function BotDetail({
   bot,
   onRefresh,
-  subscription: _subscription,
 }: {
   bot: BotType;
   onRefresh: () => void;
-  subscription: Subscription | null;
 }) {
   const [_isConnecting, setIsConnecting] = useState(false);
   const [qrData, setQrData] = useState<string | undefined>(bot.qr_code);
@@ -535,14 +512,9 @@ function BotDetail({
 
 export default function DashboardBotPage() {
   const { data: bot, isLoading, refresh } = useData<BotType>(getBot);
-  const { data: subscription, isLoading: subLoading } =
-    useData<Subscription>(getCurrent);
-
-  const hasSub =
-    subscription?.status === "ACTIVE" || subscription?.status === "CANCELLED";
   const hasBot = !!bot;
 
-  if (isLoading || subLoading) {
+  if (isLoading) {
     return (
       <div className="space-y-4">
         <Skeleton className="h-8 w-48" />
@@ -561,16 +533,10 @@ export default function DashboardBotPage() {
         </p>
       </div>
 
-      {!hasSub ? (
-        <SubscriptionGate />
-      ) : !hasBot ? (
+      {!hasBot ? (
         <NoBotState onCreated={refresh} />
       ) : (
-        <BotDetail
-          bot={bot}
-          onRefresh={refresh}
-          subscription={subscription}
-        />
+        <BotDetail bot={bot} onRefresh={refresh} />
       )}
     </div>
   );
