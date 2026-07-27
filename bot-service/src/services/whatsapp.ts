@@ -357,7 +357,6 @@ export class WhatsAppBotService {
 
       this.socket = makeWASocket({
         auth: authState,
-        printQRInTerminal: false,
         browser: Browsers.ubuntu(env.BOT_NAME),
         markOnlineOnConnect: true,
         syncFullHistory: false,
