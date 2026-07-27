@@ -277,33 +277,62 @@ function BotDetail({
   useEffect(() => {
     if (!isPolling) return;
     let attempts = 0;
+    const startTime = Date.now();
+    
+    // Show initial status immediately
+    setPairingStatus("Menghubungkan ke WhatsApp...");
+    
     const interval = setInterval(async () => {
       attempts++;
+      const elapsed = Date.now() - startTime;
+      
       try {
         const status = await getBotStatus();
-        if (status.qr) {
-          setQrData(status.qr);
-          setShowQR(true);
-        }
+        
+        // Pairing code received
         if (status.pairingCode) {
           setPairingCode(status.pairingCode);
           setPairingStatus("Kode pairing berhasil!");
           setIsPolling(false);
+          return;
         }
+        
+        // QR code received
+        if (status.qr) {
+          setQrData(status.qr);
+          setShowQR(true);
+          setIsPolling(false);
+          return;
+        }
+        
+        // Connected successfully
         if (status.status === "online") {
           setIsPolling(false);
           onRefresh();
+          return;
         }
-        if (status.status === "disconnected" || status.status === "offline") {
+        
+        // Update status text based on elapsed time
+        if (attempts <= 2) {
+          setPairingStatus("Menghubungkan ke WhatsApp...");
+        } else if (attempts <= 5) {
+          setPairingStatus("Menunggu koneksi WhatsApp...");
+        } else if (elapsed > 15000) {
+          // After 15 seconds, assume failure
           setIsPolling(false);
-          if (!status.pairingCode) {
-            setPairingError(status.error || "Koneksi ke WhatsApp gagal. Coba lagi.");
-          }
+          setPairingError(
+            "Koneksi ke WhatsApp gagal. IP server ini diblokir WhatsApp.\n" +
+            "Gunakan proxy residential atau jalanin bot di HP/laptop rumah."
+          );
+          return;
+        } else {
+          setPairingStatus("Masih mencoba... (" + Math.floor(elapsed / 1000) + "s)");
         }
-        if (status.status === "connecting") {
-          setPairingStatus(attempts > 3 ? "Menunggu koneksi WhatsApp... (IP VPS mungkin diblokir)" : "Menghubungkan ke WhatsApp...");
-        }
-      } catch {}
+      } catch {
+        // Network error — keep trying
+        setPairingStatus("Koneksi terputus, mencoba lagi...");
+      }
+      
       // Timeout after 30 seconds
       if (attempts > 15) {
         setIsPolling(false);
