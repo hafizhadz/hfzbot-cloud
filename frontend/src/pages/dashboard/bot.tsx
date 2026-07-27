@@ -276,7 +276,9 @@ function BotDetail({
   // Poll for QR/pairing code when connecting
   useEffect(() => {
     if (!isPolling) return;
+    let attempts = 0;
     const interval = setInterval(async () => {
+      attempts++;
       try {
         const status = await getBotStatus();
         if (status.qr) {
@@ -285,6 +287,8 @@ function BotDetail({
         }
         if (status.pairingCode) {
           setPairingCode(status.pairingCode);
+          setPairingStatus("Kode pairing berhasil!");
+          setIsPolling(false);
         }
         if (status.status === "online") {
           setIsPolling(false);
@@ -292,8 +296,19 @@ function BotDetail({
         }
         if (status.status === "disconnected" || status.status === "offline") {
           setIsPolling(false);
+          if (!status.pairingCode) {
+            setPairingError(status.error || "Koneksi ke WhatsApp gagal. Coba lagi.");
+          }
+        }
+        if (status.status === "connecting") {
+          setPairingStatus(attempts > 3 ? "Menunggu koneksi WhatsApp... (IP VPS mungkin diblokir)" : "Menghubungkan ke WhatsApp...");
         }
       } catch {}
+      // Timeout after 30 seconds
+      if (attempts > 15) {
+        setIsPolling(false);
+        setPairingError("Waktu habis. Pastikan nomor benar dan coba lagi.");
+      }
     }, 2000);
     return () => clearInterval(interval);
   }, [isPolling, onRefresh]);

@@ -56,16 +56,7 @@ const server = http.createServer(async (req, res) => {
           return
         }
         await connectPairing(userId, phone)
-        // Wait up to 10s for pairing code
-        for (let i = 0; i < 20; i++) {
-          const state = getSessionState(userId)
-          if (state?.pairingCode) {
-            res.writeHead(200, { "Content-Type": "application/json" })
-            res.end(JSON.stringify({ ok: true, pairingCode: state.pairingCode, userId }))
-            return
-          }
-          await new Promise(r => setTimeout(r, 500))
-        }
+        // Kirim response langsung, jangan nunggu pairing code
         res.writeHead(200, { "Content-Type": "application/json" })
         res.end(JSON.stringify({ ok: true, message: "Meminta kode pairing...", userId }))
       } catch {
