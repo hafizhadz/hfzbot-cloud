@@ -270,6 +270,7 @@ function BotDetail({
   const [pairingCode, setPairingCode] = useState("");
   const [pairingLoading, setPairingLoading] = useState(false);
   const [pairingError, setPairingError] = useState("");
+  const [pairingStatus, setPairingStatus] = useState(""); // status text
   const [isPolling, setIsPolling] = useState(false);
 
   // Poll for QR/pairing code when connecting
@@ -337,18 +338,36 @@ function BotDetail({
     setPairingLoading(true);
     setPairingError("");
     setPairingCode("");
+    setPairingStatus("Menghubungkan ke WhatsApp...");
     setIsPolling(true);
     try {
       const result = await pairingBot(pairingPhone);
-      if (result.pairingCode) setPairingCode(result.pairingCode);
+      if (result.pairingCode) {
+        setPairingCode(result.pairingCode);
+        setPairingStatus("Kode pairing berhasil didapatkan!");
+      } else {
+        setPairingStatus("Meminta kode pairing...");
+      }
     } catch (err: unknown) {
       setIsPolling(false);
+      setPairingStatus("");
       const msg = (err as { response?: { data?: { error?: { message?: string } } } })?.response?.data?.error?.message || "Gagal mendapatkan kode pairing";
       setPairingError(msg);
     } finally {
       setPairingLoading(false);
     }
   }
+
+  // Copy pairing code to clipboard
+  const copyPairingCode = async () => {
+    if (pairingCode) {
+      try {
+        await navigator.clipboard.writeText(pairingCode);
+        setPairingStatus("Kode tersalin!");
+        setTimeout(() => setPairingStatus(""), 2000);
+      } catch {}
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -473,7 +492,7 @@ function BotDetail({
               Pairing Code
             </CardTitle>
             <CardDescription>
-              Masukkan nomor WhatsApp kamu untuk mendapatkan kode pairing 6 digit.
+              Masukkan nomor WhatsApp kamu. Kode pairing 6 digit akan muncul setelah terhubung ke WhatsApp.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -484,22 +503,49 @@ function BotDetail({
                 className="flex-1"
                 value={pairingPhone}
                 onChange={(e) => setPairingPhone(e.target.value)}
+                disabled={pairingLoading}
               />
               <Button onClick={handlePairing} disabled={pairingLoading || pairingPhone.length < 10}>
-                {pairingLoading ? "Memproses..." : "Kirim"}
+                {pairingLoading ? "..." : "Kirim"}
               </Button>
             </div>
-            {pairingCode && (
-              <div className="mt-4 rounded-lg bg-muted p-4 text-center">
-                <p className="text-xs text-muted-foreground mb-1">Kode Pairing:</p>
-                <p className="text-2xl font-bold tracking-widest text-primary">{pairingCode}</p>
-                <p className="text-xs text-muted-foreground mt-2">
-                  Masukkan kode ini di WhatsApp {'>'} Linked Devices {'>'} Pair a device
-                </p>
+
+            {/* Status loading */}
+            {pairingLoading && (
+              <div className="mt-4 flex items-center gap-3 rounded-lg bg-muted/50 p-3 text-sm text-muted-foreground">
+                <div className="border-primary h-4 w-4 animate-spin rounded-full border-2 border-t-transparent" />
+                <span>{pairingStatus || "Memproses..."}</span>
               </div>
             )}
+
+            {/* Pairing code success */}
+            {pairingCode && (
+              <div className="mt-4 rounded-xl border border-primary/30 bg-primary/5 p-5 text-center">
+                <p className="text-xs font-medium text-muted-foreground mb-2">KODE PAIRING</p>
+                <p className="text-3xl font-bold tracking-[0.3em] text-primary select-all">{pairingCode}</p>
+                <div className="mt-3 flex justify-center gap-2">
+                  <Button size="sm" variant="outline" onClick={copyPairingCode}>
+                    Salin Kode
+                  </Button>
+                </div>
+                <p className="mt-3 text-xs text-muted-foreground">
+                  Buka WhatsApp {'>'} 3 titik {'>'} Perangkat tertaut {'>'} Gabungkan perangkat
+                </p>
+                {pairingStatus && (
+                  <p className="mt-2 text-xs font-medium text-green-500">{pairingStatus}</p>
+                )}
+              </div>
+            )}
+
+            {/* Error */}
             {pairingError && (
-              <p className="mt-2 text-sm text-destructive">{pairingError}</p>
+              <div className="mt-4 rounded-lg bg-destructive/10 p-3 text-sm text-destructive">
+                <p className="font-medium">Gagal</p>
+                <p className="mt-1 text-xs opacity-80">{pairingError}</p>
+                <p className="mt-2 text-xs opacity-60">
+                  Pastikan nomor benar (format: 628xxx), atau coba metode QR Code.
+                </p>
+              </div>
             )}
           </CardContent>
         </Card>
