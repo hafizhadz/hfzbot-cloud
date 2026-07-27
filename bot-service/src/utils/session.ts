@@ -1,25 +1,26 @@
+import path from "path"
+import { fileURLToPath } from "url"
 import { useMultiFileAuthState } from "@whiskeysockets/baileys"
 import type { AuthenticationState } from "@whiskeysockets/baileys"
-
 import { env } from "./env.js"
 import { logger } from "./logger.js"
 
-/**
- * Loads or initialises the multi-file auth state.
- *
- * Auth files are stored in `bot-service/auth_state/` and persist
- * WhatsApp session credentials across restarts. Without this, the
- * user would need to re-scan the QR code every time the bot starts.
- *
- * @returns The auth state object and a saveCreds callback.
- */
+// Absolute root path for auth storage
+// Resolves to: /home/ubuntu/hfzbot-cloud/bot-service/auth_state
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+export const AUTH_ROOT = path.resolve(__dirname, "..", env.AUTH_DIR)
+
 export async function loadAuthState(userId?: string): Promise<{
   state: AuthenticationState
   saveCreds: () => Promise<void>
 }> {
-  const authDir = userId ? `${env.AUTH_DIR}/${userId}` : env.AUTH_DIR
-  logger.info({ authDir }, "Loading auth state")
+  const authDir = userId ? path.join(AUTH_ROOT, userId) : AUTH_ROOT
+  logger.info({ authDir, exists: Boolean(authDir) }, "[AUTH] Loading auth state")
+
   const { state, saveCreds } = await useMultiFileAuthState(authDir)
-  logger.info({ hasCreds: Object.keys(state.creds).length > 0 }, "Auth state loaded")
+
+  const registered = !!(state.creds as { registered?: boolean }).registered
+  logger.info({ hasCreds: Object.keys(state.creds).length > 0, registered }, "[AUTH] Auth state loaded")
+
   return { state, saveCreds }
 }

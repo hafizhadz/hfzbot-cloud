@@ -1,15 +1,11 @@
-// ── Session Manager ─────────────────────────────────────────────────────────
-// Manages multiple WhatsApp sessions, one per user.
-// Each session has isolated auth state, connection, and events.
-
+import path from "path"
 import { Boom } from "@hapi/boom"
 import makeWASocket, { Browsers, DisconnectReason } from "@whiskeysockets/baileys"
-import type { WASocket, WAMessage, ConnectionState, GroupMetadata } from "@whiskeysockets/baileys"
 import { HttpsProxyAgent } from "https-proxy-agent"
 import { SocksProxyAgent } from "socks-proxy-agent"
 import { logger } from "../utils/logger.js"
 import { env } from "../utils/env.js"
-import { loadAuthState } from "../utils/session.js"
+import { loadAuthState, AUTH_ROOT } from "../utils/session.js"
 import { getApiClient } from "./api-client.js"
 
 export type BotStatus = "offline" | "connecting" | "online" | "disconnected" | "suspended"
@@ -24,247 +20,188 @@ export interface SessionState {
 }
 
 interface SessionData {
-  socket: WASocket | null
   state: SessionState
-  saveCreds: (() => Promise<void>) | null
-  groupCache: Map<string, GroupMetadata>
-  groupCacheTimer: ReturnType<typeof setInterval> | null
-  running: boolean
-  retryCount: number
-  pairingPhone?: string
+  authDir: string
+  alreadyPaired: boolean // prevent multiple pairing code requests
 }
 
 const sessions = new Map<string, SessionData>()
-const MAX_RETRIES = 5
-const RECONNECT_BASE_DELAY = 1000
 
-function getSession(userId: string): SessionData {
+// ── Public API ──────────────────────────────────────────────────────────────
+
+export function getSessionState(userId: string): SessionState | null {
+  return sessions.get(userId)?.state ?? null
+}
+
+export async function connectQR(userId: string): Promise<void> {
+  const session = getOrCreate(userId)
+  session.alreadyPaired = false
+  session.state = { userId, status: "connecting" }
+  await startSocket(userId)
+}
+
+export async function connectPairing(userId: string, phone: string): Promise<void> {
+  const session = getOrCreate(userId)
+  session.alreadyPaired = false
+  session.state = { userId, status: "connecting", pairingCode: undefined }
+  // Store phone for pairing code request after socket connects
+  await startSocket(userId, phone)
+}
+
+export async function disconnect(userId: string): Promise<void> {
+  const session = sessions.get(userId)
+  if (!session) return
+  session.state = { userId, status: "disconnected" }
+  notifyClients(userId)
+  // Socket will be closed by Baileys when we stop sending keepalives
+}
+
+export async function deleteSession(userId: string): Promise<void> {
+  sessions.delete(userId)
+  notifyClients(userId)
+}
+
+// ── Internal ────────────────────────────────────────────────────────────────
+
+function getOrCreate(userId: string): SessionData {
   let session = sessions.get(userId)
   if (!session) {
     session = {
-      socket: null,
+      authDir: path.join(AUTH_ROOT, userId),
+      alreadyPaired: false,
       state: { userId, status: "offline" },
-      saveCreds: null,
-      groupCache: new Map(),
-      groupCacheTimer: null,
-      running: false,
-      retryCount: 0,
     }
     sessions.set(userId, session)
   }
   return session
 }
 
-export function getSessionState(userId: string): SessionState | null {
-  return sessions.get(userId)?.state ?? null
-}
-
-export function getAllSessions(): SessionState[] {
-  return Array.from(sessions.values()).map(s => s.state)
-}
-
-// ── Connection Management ──────────────────────────────────────────────────
-
-export async function connectQR(userId: string): Promise<void> {
-  const session = getSession(userId)
-  if (session.running) return
-  session.running = true
-  session.retryCount = 0
-  session.pairingPhone = undefined
+async function startSocket(userId: string, pairingPhone?: string): Promise<void> {
+  const session = getOrCreate(userId)
   session.state = { userId, status: "connecting" }
-  await establish(session, userId)
-}
-
-export async function connectPairing(userId: string, phone: string): Promise<void> {
-  const session = getSession(userId)
-  if (session.running) return
-  session.running = true
-  session.retryCount = 0
-  session.pairingPhone = phone
-  session.state = { userId, status: "connecting" }
-  await establish(session, userId)
-}
-
-export async function disconnect(userId: string): Promise<void> {
-  const session = getSession(userId)
-  if (!session) return
-  session.running = false
-  if (session.socket) {
-    try {
-      session.socket.end(new Boom("Disconnected by user", {
-        statusCode: DisconnectReason.restartRequired,
-      }))
-    } catch { /* ignore */ }
-    session.socket = null
-  }
-  clearGroupCache(session)
-  session.state = { userId, status: "disconnected" }
   notifyClients(userId)
-}
 
-export async function deleteSession(userId: string): Promise<void> {
-  await disconnect(userId)
-  sessions.delete(userId)
-  notifyClients(userId)
-}
-
-// ── Internal ───────────────────────────────────────────────────────────────
-
-async function establish(session: SessionData, userId: string): Promise<void> {
   try {
     const { state: authState, saveCreds } = await loadAuthState(userId)
-    session.saveCreds = saveCreds
+    const registered = (authState.creds as { registered?: boolean }).registered ?? false
+    logger.info({ userId, registered, authDir: session.authDir }, "[AUTH] Starting socket")
 
-  session.state = { userId, status: "connecting" }
-  notifyClients(userId)
-
-  // Create proxy agent if configured
-  let agent: HttpsProxyAgent<string> | SocksProxyAgent | undefined
-  if (env.PROXY_ENABLED === "true" && env.PROXY_URL) {
-    try {
-      agent = env.PROXY_URL.startsWith("socks")
-        ? new SocksProxyAgent(env.PROXY_URL)
-        : new HttpsProxyAgent(env.PROXY_URL)
-      logger.info({ proxy: env.PROXY_URL }, "Using proxy for WhatsApp connection")
-    } catch (err) {
-      logger.error({ err }, "Failed to create proxy agent")
+    // Proxy agent if configured
+    let agent: HttpsProxyAgent<string> | SocksProxyAgent | undefined
+    if (env.PROXY_ENABLED === "true" && env.PROXY_URL) {
+      try {
+        agent = env.PROXY_URL.startsWith("socks")
+          ? new SocksProxyAgent(env.PROXY_URL)
+          : new HttpsProxyAgent(env.PROXY_URL)
+        logger.info({ proxy: env.PROXY_URL }, "[WA] Using proxy")
+      } catch (err) {
+        logger.error({ err }, "[WA] Proxy agent failed")
+      }
     }
-  }
 
-  session.socket = makeWASocket({
-    auth: authState,
-    agent,
-    printQRInTerminal: true,
-    browser: Browsers.ubuntu("HfzBot"),
+    logger.info({ userId }, "[WA] Creating socket")
+    const sock = makeWASocket({
+      auth: authState,
+      agent,
+      browser: Browsers.ubuntu("HfzBot"),
       markOnlineOnConnect: true,
       syncFullHistory: false,
       connectTimeoutMs: 20000,
       keepAliveIntervalMs: 30000,
-      maxMsgRetryCount: 5,
+      maxMsgRetryCount: 3,
       fireInitQueries: true,
       emitOwnEvents: true,
-      cachedGroupMetadata: async (jid: string) => session.groupCache.get(jid),
     })
 
-    registerHandlers(session, userId, session.socket)
-  } catch (error) {
-    logger.error({ error, userId }, "Failed to create socket")
-    session.state = { userId, status: "disconnected", error: String(error) }
-    notifyClients(userId)
-    if (session.running) scheduleReconnect(session, userId)
-  }
-}
+    // ── Auth persistence ──
+    sock.ev.on("creds.update", () => {
+      saveCreds().catch(e => logger.error({ e }, "[AUTH] Failed to save creds"))
+    })
 
-function registerHandlers(session: SessionData, userId: string, socket: WASocket): void {
-  socket.ev.on("creds.update", () => {
-    session.saveCreds?.().catch(e => logger.error({ e }, "Failed to save creds"))
-  })
+    // ── Connection updates ──
+    sock.ev.on("connection.update", async ({ connection, lastDisconnect, qr }) => {
+      // Send QR to frontend
+      if (qr && !registered) {
+        logger.info({ userId }, "[WA] QR received")
+        session.state = { userId, status: "connecting", qr }
+        notifyClients(userId)
+      }
 
-  socket.ev.on("connection.update", (update) => {
-    handleConnectionUpdate(session, userId, update)
-  })
+      if (connection === "connecting") {
+        logger.info({ userId }, "[WA] Connecting...")
+        session.state = { ...session.state, status: "connecting" }
+        notifyClients(userId)
+      }
 
-  socket.ev.on("messages.upsert", ({ messages, type }) => {
-    handleMessages(session, userId, messages, type)
-  })
-}
+      if (connection === "open") {
+        logger.info({ userId }, "[WA] Connection opened")
+        session.state = {
+          userId,
+          status: "online",
+          lastConnectedAt: new Date(),
+        }
+        notifyClients(userId)
+        notifyBackend(userId, "online")
+      }
 
-function handleConnectionUpdate(session: SessionData, userId: string, update: Partial<ConnectionState>): void {
-  const { connection, lastDisconnect, qr, isNewLogin } = update
+      if (connection === "close") {
+        const error = lastDisconnect?.error as Boom | undefined
+        const statusCode = error?.output?.statusCode
+        const message = error?.message ?? "Unknown"
 
-  if (qr && !session.pairingPhone) {
-    // QR mode
-    session.state = { userId, status: "connecting", qr }
-    notifyClients(userId)
-  }
+        logger.info({ userId, statusCode, message }, "[WA] Connection closed")
 
-  if (isNewLogin) {
-    logger.info({ userId }, "New login")
-  }
+        // Logged out — session invalid, need re-link
+        if (statusCode === DisconnectReason.loggedOut) {
+          logger.warn({ userId }, "[WA] Logged out — removing session")
+          sessions.delete(userId)
+          notifyClients(userId)
+          notifyBackend(userId, "disconnected")
+          return
+        }
 
-  if (connection === "connecting") {
-    session.state = { ...session.state, status: "connecting" }
-    notifyClients(userId)
-    
-    // If pairing mode, request pairing code immediately
-    if (session.pairingPhone && session.socket) {
-      session.socket.requestPairingCode(session.pairingPhone)
-        .then(code => {
+        // Temporary disconnect — reconnect with backoff
+        session.state = { userId, status: "disconnected", error: message }
+        notifyClients(userId)
+
+        // Attempt reconnection for non-logged-out disconnects
+        setTimeout(() => {
+          if (sessions.has(userId)) {
+            logger.info({ userId }, "[WA] Reconnecting...")
+            startSocket(userId, pairingPhone).catch(e =>
+              logger.error({ e, userId }, "[WA] Reconnect failed")
+            )
+          }
+        }, 3000)
+      }
+    })
+
+    // ── Pairing code (request once, after socket ready, if not registered) ──
+    if (pairingPhone && !registered && !session.alreadyPaired) {
+      session.alreadyPaired = true
+      // Wait for socket to be ready before requesting pairing code
+      const waitForOpen = async () => {
+        try {
+          const code = await sock.requestPairingCode(pairingPhone)
+          logger.info({ userId, code: `${code.slice(0, 3)}...` }, "[WA] Pairing code received")
           session.state = { userId, status: "connecting", pairingCode: code }
           notifyClients(userId)
-        })
-        .catch(err => {
-          logger.error({ err, userId }, "Pairing code request failed")
-          session.state = { ...session.state, error: "Gagal dapat kode pairing" }
+        } catch (err) {
+          logger.error({ err, userId }, "[WA] Pairing code request failed")
+          session.state = { ...session.state, error: "Gagal mendapatkan kode pairing" }
           notifyClients(userId)
-        })
-    }
-  }
-
-  if (isNewLogin) {
-    logger.info({ userId }, "New login")
-  }
-
-  if (connection === "connecting") {
-    session.state = { ...session.state, status: "connecting" }
-    notifyClients(userId)
-  }
-
-  if (connection === "open") {
-    session.state = {
-      userId,
-      status: "online",
-      lastConnectedAt: new Date(),
-    }
-    session.retryCount = 0
-    notifyClients(userId)
-    notifyBackend(userId, "online")
-  }
-
-  if (connection === "close") {
-    const error = lastDisconnect?.error as Boom | undefined
-    const statusCode = error?.output?.statusCode
-    session.socket = null
-    clearGroupCache(session)
-
-    switch (statusCode) {
-      case DisconnectReason.loggedOut:
-      case DisconnectReason.badSession:
-        session.state = { userId, status: "disconnected", error: "Session expired — re-link WhatsApp" }
-        session.running = false
-        notifyClients(userId)
-        notifyBackend(userId, "disconnected")
-        break
-      default:
-        session.state = { userId, status: "disconnected", error: `Connection lost: ${error?.message ?? "Unknown"}` }
-        notifyClients(userId)
-        if (session.running && session.retryCount < MAX_RETRIES) {
-          scheduleReconnect(session, userId)
         }
-        break
+      }
+      // Check registered status periodically
+      if (!registered) {
+        waitForOpen()
+      }
     }
+  } catch (error) {
+    logger.error({ error, userId }, "[WA] Socket creation failed")
+    session.state = { userId, status: "disconnected", error: String(error) }
+    notifyClients(userId)
   }
-}
-
-function scheduleReconnect(session: SessionData, userId: string): void {
-  const delay = RECONNECT_BASE_DELAY * Math.pow(2, session.retryCount)
-  session.retryCount++
-  logger.info({ userId, delay, retry: session.retryCount }, "Scheduling reconnect")
-  setTimeout(() => {
-    if (session.running) establish(session, userId)
-  }, delay)
-}
-
-function handleMessages(_session: SessionData, _userId: string, _messages: WAMessage[], _type: string): void {
-  // Message handling - future feature
-}
-
-function clearGroupCache(session: SessionData): void {
-  if (session.groupCacheTimer) {
-    clearInterval(session.groupCacheTimer)
-    session.groupCacheTimer = null
-  }
-  session.groupCache.clear()
 }
 
 // ── WebSocket Clients ──────────────────────────────────────────────────────
@@ -283,8 +220,6 @@ function notifyClients(userId: string): void {
   if (!state) return
   wsClients.get(userId)?.forEach(cb => cb(state))
 }
-
-// ── Backend Notification ──────────────────────────────────────────────────
 
 function notifyBackend(userId: string, status: string): void {
   try {
