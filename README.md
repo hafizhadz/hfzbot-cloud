@@ -199,3 +199,17 @@ PROXY_URL=
 - **WhatsApp Block**: IP VPS/data center diblokir WhatsApp. Solusi: proxy residential atau jalanin bot service di jaringan rumah.
 - **Email**: Resend sandbox hanya kirim ke email terdaftar. Verifikasi domain di resend.com untuk production.
 - **Google OAuth**: Pastikan redirect URI di Google Cloud Console sesuai domain.
+
+---
+
+## Changelog
+
+### 2026-07-26 — Session Manager Rewrite
+- Single socket per user — cleanup sebelum reconnect, no multiple connections
+- Exponential backoff reconnect (3s → 6s → 12s → 24s → 48s → max 60s, stop after 10 retries)
+- Absolute auth path (resolved dari project root, bukan process.cwd())
+- Session hanya dihapus kalo loggedOut/badSession, bukan karena Connection Failure
+- printQRInTerminal deprecated option dihapus
+- Pairing code hanya dipanggil sekali (pairingRequested flag)
+- Logging dengan prefix jelas: [SESSION], [SOCKET], [AUTH], [WA], [QR], [PAIRING], [RECONNECT], [CONNECTION]
+- Pairing UI realtime status loading di frontend
